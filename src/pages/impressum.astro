@@ -5,13 +5,45 @@ import type { Locale } from '../i18n/ui';
 const locale: Locale = 'de';
 ---
 
-<BaseLayout title="Impressum · Roomie" description="Impressum" locale={locale} translated={false}>
+<BaseLayout
+	title="Impressum · Roomie"
+	description="Impressum und Anbieterkennzeichnung für die Roomie-Website."
+	locale={locale}
+	translated={false}
+>
 	<h1>Impressum</h1>
-	<p class="placeholder">
-		[PLACEHOLDER: Impressum-Text gemäß § 5 TMG einfügen — Name, Anschrift, Kontakt (E-Mail,
-		ggf. Telefon), sowie ggf. Angaben zur inhaltlich verantwortlichen Person gemäß § 18 Abs. 2
-		MStV.]
-	</p>
+
+	<div class="card">
+		<section>
+			<h2>Angaben gemäß § 5 DDG</h2>
+			<address>
+				Dominik Weber<br />
+				Ginsterweg 23A<br />
+				90480 Nürnberg
+			</address>
+		</section>
+
+		<section>
+			<h2>Kontakt</h2>
+			<p>
+				Telefon: <a href="tel:+4915234174658">+49 152 3417 4658</a><br />
+				E-Mail: <a href="mailto:dm.weber@outlook.de">dm.weber@outlook.de</a>
+			</p>
+		</section>
+
+		<section>
+			<h2>Redaktionell verantwortlich</h2>
+			<address>
+				Dominik Weber<br />
+				Ginsterweg 23A<br />
+				90480 Nürnberg
+			</address>
+		</section>
+
+		<p class="source">
+			Quelle: <a href="https://www.e-recht24.de" rel="nofollow">eRecht24</a>
+		</p>
+	</div>
 </BaseLayout>
 
 <style>
@@ -19,18 +51,39 @@ const locale: Locale = 'de';
 		margin: 0 0 28px;
 		font-size: 2.6rem;
 	}
-	.placeholder {
-		border: 2px dashed var(--ink-soft);
-		border-radius: var(--radius-md);
-		padding: 24px;
-		color: var(--ink-soft);
+	.card {
+		background: var(--cream);
+		border: var(--border);
+		border-radius: var(--radius-lg);
+		padding: 32px;
+	}
+	section + section {
+		margin-top: 28px;
+	}
+	h2 {
+		font-size: 1.3rem;
+		margin: 0 0 10px;
+	}
+	address {
+		font-style: normal;
+		line-height: 1.7;
+	}
+	.card p {
+		margin: 0;
+		line-height: 1.7;
+	}
+	.source {
+		margin-top: 28px;
 		font-family: var(--font-mono);
-		font-size: 0.9rem;
-		line-height: 1.6;
+		font-size: 0.8rem;
+		color: var(--ink-soft);
 	}
 	@media (max-width: 700px) {
 		h1 {
 			font-size: 2rem;
+		}
+		.card {
+			padding: 24px;
 		}
 	}
 </style>
