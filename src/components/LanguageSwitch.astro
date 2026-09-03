@@ -1,0 +1,48 @@
+---
+import { languages, type Locale } from '../i18n/ui';
+import { getLocalizedPath } from '../i18n/utils';
+
+interface Props {
+	locale: Locale;
+}
+const { locale } = Astro.props;
+const pathname = Astro.url.pathname;
+const codes = Object.keys(languages) as Locale[];
+---
+
+<div class="lang">
+	{
+		codes.map((code) => (
+			<a
+				href={getLocalizedPath(pathname, code)}
+				class:list={{ on: code === locale }}
+				aria-current={code === locale ? 'true' : undefined}
+			>
+				{code.toUpperCase()}
+			</a>
+		))
+	}
+</div>
+
+<style>
+	.lang {
+		display: flex;
+		gap: 4px;
+		font-family: var(--font-mono);
+		font-size: 0.85rem;
+		font-weight: 600;
+		border: var(--border-thin);
+		border-radius: 999px;
+		padding: 4px;
+	}
+	.lang a {
+		text-decoration: none;
+		padding: 7px 14px;
+		border-radius: 999px;
+		color: var(--ink);
+	}
+	.lang a.on {
+		background: var(--ink);
+		color: var(--paper);
+	}
+</style>

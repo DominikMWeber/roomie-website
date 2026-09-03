@@ -1,0 +1,53 @@
+---
+interface Props {
+	size?: string;
+	/** Purely decorative by default — adjacent text already identifies Roomie. */
+	decorative?: boolean;
+}
+const { size = '180px', decorative = true } = Astro.props;
+---
+
+<svg
+	width={size}
+	height={size}
+	viewBox="0 0 200 190"
+	xmlns="http://www.w3.org/2000/svg"
+	role={decorative ? undefined : 'img'}
+	aria-hidden={decorative ? 'true' : undefined}
+	aria-label={decorative ? undefined : 'Roomie logo'}
+>
+	<g>
+		<path
+			d="M40 60c0-16 12-28 28-28s28 12 28 28v46c0 14-11 25-25 25H65c-14 0-25-11-25-25V60z"
+			fill="#14181C"
+		></path>
+		<rect x="63" y="18" width="4" height="16" rx="2" fill="#14181C"></rect>
+		<rect x="69" y="18" width="4" height="16" rx="2" fill="#14181C"></rect>
+		<circle cx="57" cy="66" r="7" fill="#FF4FA0"></circle>
+		<circle cx="79" cy="66" r="7" fill="#FF4FA0"></circle>
+		<path
+			d="M55 90c6 6 20 6 26 0"
+			stroke="#FFFFFF"
+			stroke-width="4"
+			stroke-linecap="round"
+			fill="none"></path>
+	</g>
+	<g transform="translate(96,0)">
+		<path
+			d="M28 66c0-18 14-32 32-32s32 14 32 32v40c0 16-13 29-29 29H57c-16 0-29-13-29-29V66z"
+			fill="#1FD1B8"
+		></path>
+		<path d="M40 34l-8-16 14 6z" fill="#1FD1B8"></path>
+		<path d="M76 34l8-16-14 6z" fill="#1FD1B8"></path>
+		<circle cx="52" cy="70" r="9" fill="#14181C"></circle>
+		<circle cx="52" cy="70" r="3.4" fill="#FFFFFF"></circle>
+		<circle cx="76" cy="70" r="9" fill="#14181C"></circle>
+		<circle cx="76" cy="70" r="3.4" fill="#FFFFFF"></circle>
+		<path
+			d="M50 92c6 8 22 8 28 0"
+			stroke="#F5E017"
+			stroke-width="5"
+			stroke-linecap="round"
+			fill="none"></path>
+	</g>
+</svg>

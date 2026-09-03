@@ -1,0 +1,51 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPostsForLocale } from '../../lib/blog';
+import { useTranslations } from '../../i18n/utils';
+import PostCard from '../../components/PostCard.astro';
+import type { Locale } from '../../i18n/ui';
+
+const locale: Locale = 'de';
+const t = useTranslations(locale);
+const posts = await getPostsForLocale(locale);
+---
+
+<BaseLayout
+	title={`${t('blog.index.title')} · ${t('site.title')}`}
+	description={t('site.description')}
+	locale={locale}
+>
+	<h1>{t('blog.index.title')}</h1>
+	<div class="post-grid">
+		{
+			posts.map((post) => (
+				<PostCard
+					headingLevel="h2"
+					href={getRelativeLocaleUrl(locale, `/blog/${post.data.translationId}`)}
+					image={post.data.image}
+					title={post.data.title}
+					description={post.data.description}
+					note={post.data.locale !== locale ? t('blog.notTranslated') : undefined}
+				/>
+			))
+		}
+	</div>
+</BaseLayout>
+
+<style>
+	h1 {
+		margin: 0 0 32px;
+		font-size: 3rem;
+	}
+	.post-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: 32px 24px;
+	}
+	@media (max-width: 700px) {
+		h1 {
+			font-size: 2.1rem;
+		}
+	}
+</style>

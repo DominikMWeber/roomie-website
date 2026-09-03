@@ -1,0 +1,98 @@
+---
+import { useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/ui';
+
+interface Props {
+	locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const features = [
+	{
+		title: t('feature.aec.title'),
+		desc: t('feature.aec.desc'),
+		bg: 'var(--pink-soft)',
+		icon: 'check' as const,
+	},
+	{
+		title: t('feature.mdns.title'),
+		desc: t('feature.mdns.desc'),
+		bg: 'var(--lavender)',
+		icon: 'wifi' as const,
+	},
+];
+---
+
+<div class="features">
+	{
+		features.map((f) => (
+			<div class="feature-card" style={{ background: f.bg }}>
+				<div class="feature-icon">
+					{f.icon === 'check' ? (
+						<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+							<path
+								d="M5 13l4 4L19 7"
+								stroke="currentColor"
+								stroke-width="2.4"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+						</svg>
+					) : (
+						<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+							<circle cx="12" cy="12" r="3" fill="currentColor" />
+							<path
+								d="M5 12a7 7 0 0114 0M2 12a10 10 0 0120 0"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+							/>
+						</svg>
+					)}
+				</div>
+				<h2>{f.title}</h2>
+				<p>{f.desc}</p>
+			</div>
+		))
+	}
+</div>
+
+<style>
+	.features {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 24px;
+		margin-bottom: 28px;
+	}
+	.feature-card {
+		border: var(--border);
+		border-radius: var(--radius-lg);
+		padding: 32px;
+	}
+	.feature-icon {
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		background: var(--paper);
+		border: var(--border-thin);
+		color: var(--ink);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 18px;
+	}
+	.feature-card h2 {
+		font-size: 1.4rem;
+		margin-bottom: 10px;
+	}
+	.feature-card p {
+		margin: 0;
+		font-size: 1.05rem;
+	}
+	@media (max-width: 700px) {
+		.features {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

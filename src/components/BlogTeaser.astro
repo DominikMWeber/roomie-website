@@ -1,0 +1,76 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getPostsForLocale } from '../lib/blog';
+import { useTranslations } from '../i18n/utils';
+import PostCard from './PostCard.astro';
+import type { Locale } from '../i18n/ui';
+
+interface Props {
+	locale: Locale;
+	limit?: number;
+}
+const { locale, limit = 3 } = Astro.props;
+const t = useTranslations(locale);
+const posts = (await getPostsForLocale(locale)).slice(0, limit);
+const blogIndexHref = getRelativeLocaleUrl(locale, '/blog');
+---
+
+{
+	posts.length > 0 && (
+		<section class="blog-teaser" aria-labelledby="recent-posts-heading">
+			<h2 id="recent-posts-heading">{t('blog.recent.title')}</h2>
+			<div class="post-grid">
+				{posts.map((post) => (
+					<PostCard
+						href={getRelativeLocaleUrl(locale, `/blog/${post.data.translationId}`)}
+						image={post.data.image}
+						title={post.data.title}
+						description={post.data.description}
+						note={post.data.locale !== locale ? t('blog.notTranslated') : undefined}
+					/>
+				))}
+			</div>
+			<div class="view-all-wrap">
+				<a class="view-all" href={blogIndexHref}>
+					{t('blog.viewAll')}
+				</a>
+			</div>
+		</section>
+	)
+}
+
+<style>
+	.blog-teaser {
+		margin-bottom: 28px;
+	}
+	.blog-teaser h2 {
+		font-size: 1.6rem;
+		margin-bottom: 24px;
+	}
+	.post-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: 32px 24px;
+	}
+	.view-all-wrap {
+		text-align: center;
+		margin-top: 36px;
+	}
+	.view-all {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		font-weight: 700;
+		font-family: var(--font-display);
+		font-size: 1.05rem;
+		background: var(--paper);
+		border: var(--border-thin);
+		border-radius: 999px;
+		padding: 14px 28px;
+		text-decoration: none;
+	}
+	.view-all:hover {
+		background: var(--ink);
+		color: var(--paper);
+	}
+</style>

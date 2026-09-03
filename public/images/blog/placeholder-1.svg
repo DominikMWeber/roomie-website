@@ -1,0 +1,27 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+	<rect width="640" height="400" fill="#B3E4FF" />
+	<circle cx="70" cy="70" r="22" fill="#FFFFFF" stroke="#14181C" stroke-width="3" />
+	<circle cx="70" cy="70" r="5" fill="#14181C" />
+	<circle cx="570" cy="330" r="22" fill="#FFFFFF" stroke="#14181C" stroke-width="3" />
+	<path d="M562 330l6 6 10-12" stroke="#14181C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+	<g transform="translate(210,90) scale(1.15)">
+		<g>
+			<path d="M40 60c0-16 12-28 28-28s28 12 28 28v46c0 14-11 25-25 25H65c-14 0-25-11-25-25V60z" fill="#14181C" />
+			<rect x="63" y="18" width="4" height="16" rx="2" fill="#14181C" />
+			<rect x="69" y="18" width="4" height="16" rx="2" fill="#14181C" />
+			<circle cx="57" cy="66" r="7" fill="#FF4FA0" />
+			<circle cx="79" cy="66" r="7" fill="#FF4FA0" />
+			<path d="M55 90c6 6 20 6 26 0" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" fill="none" />
+		</g>
+		<g transform="translate(96,0)">
+			<path d="M28 66c0-18 14-32 32-32s32 14 32 32v40c0 16-13 29-29 29H57c-16 0-29-13-29-29V66z" fill="#1FD1B8" />
+			<path d="M40 34l-8-16 14 6z" fill="#1FD1B8" />
+			<path d="M76 34l8-16-14 6z" fill="#1FD1B8" />
+			<circle cx="52" cy="70" r="9" fill="#14181C" />
+			<circle cx="52" cy="70" r="3.4" fill="#FFFFFF" />
+			<circle cx="76" cy="70" r="9" fill="#14181C" />
+			<circle cx="76" cy="70" r="3.4" fill="#FFFFFF" />
+			<path d="M50 92c6 8 22 8 28 0" stroke="#F5E017" stroke-width="5" stroke-linecap="round" fill="none" />
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,59 @@
+---
+import Mascot from './Mascot.astro';
+import Quote from './Quote.astro';
+import FeatureList from './FeatureList.astro';
+import BlogTeaser from './BlogTeaser.astro';
+import PdfGuide from './PdfGuide.astro';
+import { useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/ui';
+
+interface Props {
+	locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<section class="hero">
+	<div class="mascot-wrap"><Mascot size="150px" /></div>
+	<h1 class="tagline">
+		{t('hero.tagline.prefix')}<span class="marker is-on">{t('hero.tagline.highlight')}</span>
+	</h1>
+</section>
+
+<Quote
+	text={t('quote.text')}
+	attribution={t('quote.attribution')}
+	readMoreLabel={t('quote.readMore')}
+/>
+
+<FeatureList locale={locale} />
+
+<BlogTeaser locale={locale} />
+
+<PdfGuide locale={locale} />
+
+<style>
+	.hero {
+		background: var(--sky);
+		border: var(--border);
+		border-radius: var(--radius-lg);
+		padding: 56px 32px;
+		text-align: center;
+		margin-bottom: 28px;
+	}
+	.mascot-wrap {
+		width: 150px;
+		margin: 0 auto 32px;
+	}
+	.tagline {
+		font-size: 3rem;
+		max-width: 20ch;
+		margin: 0 auto;
+	}
+	@media (max-width: 700px) {
+		.tagline {
+			font-size: 2.1rem;
+		}
+	}
+</style>

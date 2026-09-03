@@ -1,0 +1,35 @@
+:root {
+	--paper: #ffffff;
+	--ink: #14181c;
+	--ink-soft: #5b646a;
+
+	/* pastel card backgrounds */
+	--cream: #fcefbc;
+	--mint: #caf3ca;
+	--sky: #b3e4ff;
+	--pink-soft: #ffd3ea;
+	--lavender: #e4d9ff;
+
+	/* saturated accents */
+	--marker-yellow: #f5e017;
+	--pink: #ff4fa0;
+	--teal: #1fd1b8;
+	--violet: #8c6bfa;
+
+	--border: 3px solid var(--ink);
+	--border-thin: 2px solid var(--ink);
+	--radius-lg: 24px;
+	--radius-md: 18px;
+
+	--font-display: 'Space Grotesk', sans-serif;
+	--font-body: 'Lexend', sans-serif;
+	--font-mono: 'JetBrains Mono', monospace;
+}
+
+/*
+  Dark-mode extension point (not implemented yet): when a toggle is added,
+  override the tokens above under a [data-theme="dark"] selector and/or
+  @media (prefers-color-scheme: dark), and keep every component styled
+  exclusively through these custom properties so no hardcoded colors need
+  to be found and changed later.
+*/

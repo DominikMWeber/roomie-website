@@ -1,0 +1,69 @@
+---
+interface Props {
+	href: string;
+	image: string;
+	title: string;
+	description: string;
+	note?: string;
+	headingLevel?: 'h2' | 'h3';
+}
+const { href, image, title, description, note, headingLevel = 'h3' } = Astro.props;
+const Heading = headingLevel;
+---
+
+<a class="post-card" href={href}>
+	<div class="post-card-image">
+		<img src={image} alt="" loading="lazy" decoding="async" />
+	</div>
+	<Heading>{title}</Heading>
+	<p>{description}</p>
+	{note && <p class="translation-note">{note}</p>}
+</a>
+
+<style>
+	.post-card {
+		display: block;
+		color: var(--ink);
+		text-decoration: none;
+		transition: translate 0.2s ease;
+	}
+	.post-card:hover,
+	.post-card:focus-visible {
+		translate: 0 -8px;
+	}
+	.post-card-image {
+		aspect-ratio: 16 / 10;
+		border: var(--border);
+		border-radius: var(--radius-lg);
+		overflow: hidden;
+		margin-bottom: 18px;
+	}
+	.post-card-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+	.post-card h2,
+	.post-card h3 {
+		font-size: 1.2rem;
+		margin-bottom: 8px;
+	}
+	.post-card:hover h2,
+	.post-card:hover h3,
+	.post-card:focus-visible h2,
+	.post-card:focus-visible h3 {
+		color: var(--pink);
+		text-decoration: underline;
+	}
+	.post-card p {
+		margin: 0;
+		color: var(--ink-soft);
+		font-size: 1rem;
+		line-height: 1.55;
+	}
+	.translation-note {
+		margin-top: 6px;
+		font-style: italic;
+	}
+</style>

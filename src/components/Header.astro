@@ -1,0 +1,84 @@
+---
+import Mascot from './Mascot.astro';
+import Nav from './Nav.astro';
+import LanguageSwitch from './LanguageSwitch.astro';
+import { useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/ui';
+
+interface Props {
+	locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<header>
+	<div class="header-inner">
+		<div class="brand">
+			<div class="brand-mark"><Mascot size="40px" /></div>
+			<div class="brand-text">
+				<span class="brand-word">roomie</span>
+				<span class="brand-sub">{t('brand.sub')}</span>
+			</div>
+		</div>
+
+		<div class="nav-side">
+			<Nav locale={locale} />
+			<LanguageSwitch locale={locale} />
+		</div>
+	</div>
+</header>
+
+<style>
+	header {
+		border-bottom: var(--border);
+	}
+	.header-inner {
+		max-width: 1080px;
+		margin: 0 auto;
+		padding: 22px 24px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+		flex-wrap: wrap;
+	}
+	.brand {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+	.brand-text {
+		display: flex;
+		flex-direction: column;
+		line-height: 1.25;
+	}
+	.brand-mark {
+		width: 40px;
+		height: 40px;
+	}
+	.brand-word {
+		font-family: var(--font-display);
+		font-weight: 700;
+		font-size: 1.4rem;
+	}
+	.brand-sub {
+		font-size: 1rem;
+		color: var(--ink-soft);
+	}
+	.nav-side {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+		flex-wrap: wrap;
+	}
+	@media (max-width: 700px) {
+		.header-inner {
+			justify-content: center;
+			text-align: center;
+		}
+		.nav-side {
+			justify-content: center;
+		}
+	}
+</style>

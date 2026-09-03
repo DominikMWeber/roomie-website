@@ -1,0 +1,48 @@
+---
+interface Props {
+	text: string;
+	attribution: string;
+	readMoreLabel: string;
+	readMoreHref?: string;
+}
+const { text, attribution, readMoreLabel, readMoreHref = '#' } = Astro.props;
+---
+
+<section class="quote-card">
+	<div class="quote-inner">
+		<p>&ldquo;{text}&rdquo;</p>
+		<p class="attribution">{attribution}</p>
+		<a class="read-more" href={readMoreHref}>{readMoreLabel}</a>
+	</div>
+</section>
+
+<style>
+	.quote-card {
+		background: var(--mint);
+		border: var(--border);
+		border-radius: var(--radius-lg);
+		padding: 32px;
+		margin-bottom: 28px;
+	}
+	.quote-inner {
+		background: var(--paper);
+		border: var(--border-thin);
+		border-radius: var(--radius-md);
+		padding: 28px 32px;
+	}
+	.quote-card p {
+		margin: 0;
+		font-size: 1.15rem;
+	}
+	.quote-card .attribution {
+		margin-top: 16px;
+		font-weight: 700;
+		font-family: var(--font-display);
+		font-size: 1.05rem;
+	}
+	.quote-card .read-more {
+		display: inline-block;
+		margin-top: 16px;
+		font-weight: 600;
+	}
+</style>
