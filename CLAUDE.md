@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Roomie's marketing/docs site — a static Astro site for a broker-less, ESP32-S3-based room-to-room intercom project. Bilingual (German default, English opt-in), no backend. Work happens on the `development` branch.
 
-`_draft/` (gitignored) holds the original visual mockup (`roomie-draft-v1.html`) and `requirements.txt` — reference material, not part of the build.
+`_draft/` (gitignored) holds reference material, not part of the build: `requirements.txt` (the spec), and three static HTML design mockups — `roomie-draft-v1.html` (original neo-brutalist brand), `roomie-draft-v2-accessible.html` (full gehirngerecht.digital-style direction), `roomie-draft-v3-mixed.html` (the blend that was actually built — see "Visual design" below).
 
 ## Commands
 
@@ -32,7 +32,9 @@ Translation strings live in `src/i18n/ui.ts` — a flat, typed dictionary keyed 
 
 For known static routes (nav links, blog index/post links), prefer `getRelativeLocaleUrl(locale, path)` from `astro:i18n` over manual string concatenation — it returns a **trailing-slash path**, so build the full path (including any slug) in one call rather than concatenating a cached "base" with more segments (this caused a double-slash bug once).
 
-Legal pages (Impressum, Datenschutz) are a deliberate exception: German-only, unprefixed (`/impressum`, `/datenschutz`), one instance linked identically from both locale footers — not translated, matching common German-site convention. Content is currently `[PLACEHOLDER]` text pending real legal copy from the site owner.
+Impressum and Datenschutz are a deliberate exception: German-only, unprefixed (`/impressum`, `/datenschutz`), one instance linked identically from both locale footers — not translated, matching common German-site convention. `/ai-usage` (AI usage disclaimer) is bilingual like the rest of the site. Legal-page content is currently `[PLACEHOLDER]` text pending real copy from the site owner.
+
+**Untranslated-page handling**: `BaseLayout` takes a `translated?: boolean` prop (default `true`), threaded through to `Header` → `LanguageSwitch`. Pages that only exist in one language (Impressum, Datenschutz) pass `translated={false}`. When set, `LanguageSwitch` renders the *other* language as a disabled, non-navigating `<span>` instead of a link — without this, the toggle would build a link via `getLocalizedPath` to a page that doesn't exist (e.g. `/en/impressum`) and 404. Any new German-only (or otherwise partially-translated) page must set this prop.
 
 ## Blog content collection
 
@@ -42,13 +44,17 @@ Schema requires `locale: 'de' | 'en'` and `translationId` (a shared string key p
 
 **Fallback logic lives in `src/lib/blog.ts` (`getPostsForLocale`)**: German is always the baseline — the result map is seeded from every German entry first, then for `locale: 'en'` any post that also has an English version overlays it. A post without an English translation still appears under `/en/blog` as its German entry, so nothing 404s or vanishes. Templates check `post.data.locale !== locale` to show a "not yet translated" note (`t('blog.notTranslated')`). Any new page that lists or links posts should go through this helper rather than calling `getCollection('blog', ...)` directly, to keep the fallback behavior consistent.
 
+Each post has an `image` field (defaults to `/images/blog/placeholder-1.svg` if omitted in frontmatter) — dummy pastel-illustration SVGs live in `public/images/blog/`. Blog cards (the Start-page teaser grid and the `/blog` listing grid) both render through the shared `src/components/PostCard.astro` — image on top, hover/focus lift (`translate: 0 -8px`), title turns pink + underlines on hover. Reuse `PostCard` for any new post-listing UI rather than re-implementing the card markup.
+
 ## Components & styling
 
 `BaseLayout.astro` wraps every page (`<html lang={locale}>`, imports `fonts.css`/`tokens.css`/`global.css`, renders `Header` + `<slot />` + `Footer`). `StartPageBody.astro` composes the Start page's locale-driven sections so `src/pages/index.astro` / `en/index.astro` stay thin `locale` prop wrappers instead of two hand-synced copies.
 
 All colors and fonts are CSS custom properties defined once in `src/styles/tokens.css` — component styles must reference tokens (`var(--ink)`, etc.), never hardcode hex values. This is the hook point for a future dark-mode toggle (`[data-theme="dark"]` / `prefers-color-scheme` override on the same tokens); no toggle exists yet.
 
-Fonts are self-hosted via `@fontsource/space-grotesk` and `@fontsource/jetbrains-mono` (imported in `src/styles/fonts.css`), not loaded from Google's CDN — deliberate GDPR choice for a German site (avoids leaking visitor IPs to Google). Don't reintroduce a `fonts.googleapis.com`/`fonts.gstatic.com` `<link>`.
+**Visual design** is a deliberate blend: white page background with pastel-tinted content cards (`--cream`, `--mint`, `--sky`, `--pink-soft`, `--lavender`) inside thick 3px black borders (`--border` / `--border-thin`) and large corner radii (`--radius-lg: 24px`, `--radius-md: 18px`) — this "chunky card" language was borrowed from gehirngerecht.digital's accessible-design style. Headings use `--font-display` (Space Grotesk, bold); body copy uses `--font-body` (Lexend — chosen because it's a typeface designed to improve reading proficiency, fitting for an accessibility-conscious site); small meta/label text uses `--font-mono` (JetBrains Mono). When adding a new section, follow the existing pattern: a bordered/radiused card in one of the pastel tokens, not a new color.
+
+Fonts are self-hosted via `@fontsource/space-grotesk`, `@fontsource/lexend`, and `@fontsource/jetbrains-mono` (imported in `src/styles/fonts.css`), not loaded from Google's CDN — deliberate GDPR choice for a German site (avoids leaking visitor IPs to Google). Don't reintroduce a `fonts.googleapis.com`/`fonts.gstatic.com` `<link>`.
 
 ## Astro syntax gotchas hit during this build
 
