@@ -42,6 +42,7 @@ export const ui = {
 		'blog.recent.title': 'Neueste Blogbeiträge',
 		'blog.viewAll': 'Zu allen Blogposts',
 		'blog.publishedOn': 'Veröffentlicht am',
+		'blog.by': 'von',
 		'blog.notTranslated': '',
 
 		'footer.impressum': 'Impressum',
@@ -84,6 +85,7 @@ export const ui = {
 		'blog.recent.title': 'Recent blog posts',
 		'blog.viewAll': 'View all blog posts',
 		'blog.publishedOn': 'Published on',
+		'blog.by': 'by',
 		'blog.notTranslated':
 			"This post isn't translated into English yet — showing the German version.",
 

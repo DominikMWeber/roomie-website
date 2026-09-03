@@ -8,6 +8,7 @@ const blog = defineCollection({
 		title: z.string(),
 		description: z.string(),
 		date: z.coerce.date(),
+		author: z.string().default('Dominik Weber'),
 		image: z.string().default('/images/blog/placeholder-1.svg'),
 		locale: z.enum(['de', 'en']),
 		translationId: z.string(),
