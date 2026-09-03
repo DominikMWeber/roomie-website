@@ -17,11 +17,12 @@ export const ui = {
 
 		'brand.sub': 'Ein pädagogisches Intercom-Projekt',
 
-		'hero.tagline.prefix': 'Roomie ist eine ',
-		'hero.tagline.highlight': 'broker-lose Zimmer-zu-Zimmer-Gegensprechanlage.',
+		'hero.tagline.prefix':
+			'Lasst mich roomie vorstellen: Ein nerdiges und personalisiertes Old-School-Intercom, mit dem sich Groß und Klein Zuhause unterhalten kann — ',
+		'hero.tagline.highlight': 'realisiert mit ESP32-Mikrocontrollern.',
 
 		'quote.text':
-			'Ich wollte ein System schaffen, das Kindern echte Kommunikationstechnologie über reale Gespräche näherbringt — mit einem Aufbau, der Spaß macht und die Bildschirmzeit weg von funktionsüberladenen, süchtig machenden Smartphones reduziert.',
+			'Als Patenonkel eines vierjährigen Bubs wollte ich ein technisches System schaffen, das Kinder spielerisch an Kommunikationstechnik heranführt. Wichtig war mir hierbei, auf Bildschirmzeit mit funktionsüberladenen, süchtig machenden Smartphones zu verzichten.',
 		'quote.attribution': '— Dominik',
 		'quote.readMore': '→ ganzen Blogbeitrag lesen',
 
@@ -60,11 +61,12 @@ export const ui = {
 
 		'brand.sub': 'An educational intercom project',
 
-		'hero.tagline.prefix': 'Roomie is a ',
-		'hero.tagline.highlight': 'broker-less room-to-room intercom.',
+		'hero.tagline.prefix':
+			'Let me introduce roomie: an old-school, nerdy and customizable intercom system that lets roommates talk to each other at home — ',
+		'hero.tagline.highlight': 'running on ESP32 platforms.',
 
 		'quote.text':
-			'I wanted to provide a system that introduces kids to communication technology via real conversations under a fun to use setup. A setup that reduces screentime away from feature-overloaded, addictive smartphones.',
+			"As a godfather raising a 4-year-old lad, I wanted to provide a system that introduces kids to communication technology through real conversations, in a setup that's fun to use. A setup that reduces screen time away from feature-overloaded, addictive smartphones.",
 		'quote.attribution': '— Dominik',
 		'quote.readMore': '→ read the whole blog post',
 
