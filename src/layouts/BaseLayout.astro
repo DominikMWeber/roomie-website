@@ -11,8 +11,15 @@ interface Props {
 	title: string;
 	description: string;
 	locale?: Locale;
+	/** Set to false for pages that only exist in one language (e.g. Impressum). */
+	translated?: boolean;
 }
-const { title, description, locale = getLocale(Astro.url.pathname) } = Astro.props;
+const {
+	title,
+	description,
+	locale = getLocale(Astro.url.pathname),
+	translated = true,
+} = Astro.props;
 ---
 
 <html lang={locale}>
@@ -26,7 +33,7 @@ const { title, description, locale = getLocale(Astro.url.pathname) } = Astro.pro
 		<title>{title}</title>
 	</head>
 	<body>
-		<Header locale={locale} />
+		<Header locale={locale} translated={translated} />
 		<main>
 			<slot />
 		</main>

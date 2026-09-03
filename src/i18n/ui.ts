@@ -46,6 +46,9 @@ export const ui = {
 
 		'footer.impressum': 'Impressum',
 		'footer.datenschutz': 'Datenschutz',
+		'footer.aiUsage': 'KI-Nutzung',
+
+		'lang.notAvailable': 'Diese Seite ist nur auf Deutsch verfügbar',
 	},
 	en: {
 		'site.title': 'Roomie',
@@ -86,5 +89,8 @@ export const ui = {
 
 		'footer.impressum': 'Impressum',
 		'footer.datenschutz': 'Privacy Policy',
+		'footer.aiUsage': 'AI Usage',
+
+		'lang.notAvailable': 'This page is only available in German',
 	},
 } as const satisfies Record<Locale, Record<string, string>>;

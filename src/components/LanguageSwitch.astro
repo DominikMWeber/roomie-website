@@ -1,26 +1,35 @@
 ---
 import { languages, type Locale } from '../i18n/ui';
-import { getLocalizedPath } from '../i18n/utils';
+import { getLocalizedPath, useTranslations } from '../i18n/utils';
 
 interface Props {
 	locale: Locale;
+	/** Set to false for pages that only exist in one language (e.g. Impressum). */
+	translated?: boolean;
 }
-const { locale } = Astro.props;
+const { locale, translated = true } = Astro.props;
+const t = useTranslations(locale);
 const pathname = Astro.url.pathname;
 const codes = Object.keys(languages) as Locale[];
 ---
 
 <div class="lang">
 	{
-		codes.map((code) => (
-			<a
-				href={getLocalizedPath(pathname, code)}
-				class:list={{ on: code === locale }}
-				aria-current={code === locale ? 'true' : undefined}
-			>
-				{code.toUpperCase()}
-			</a>
-		))
+		codes.map((code) =>
+			code === locale || translated ? (
+				<a
+					href={getLocalizedPath(pathname, code)}
+					class:list={{ on: code === locale }}
+					aria-current={code === locale ? 'true' : undefined}
+				>
+					{code.toUpperCase()}
+				</a>
+			) : (
+				<span class="disabled" aria-disabled="true" title={t('lang.notAvailable')}>
+					{code.toUpperCase()}
+				</span>
+			),
+		)
 	}
 </div>
 
@@ -35,14 +44,22 @@ const codes = Object.keys(languages) as Locale[];
 		border-radius: 999px;
 		padding: 4px;
 	}
-	.lang a {
-		text-decoration: none;
+	.lang a,
+	.lang .disabled {
 		padding: 7px 14px;
 		border-radius: 999px;
 		color: var(--ink);
 	}
+	.lang a {
+		text-decoration: none;
+	}
 	.lang a.on {
 		background: var(--ink);
 		color: var(--paper);
+	}
+	.lang .disabled {
+		color: var(--ink-soft);
+		opacity: 0.5;
+		cursor: not-allowed;
 	}
 </style>
