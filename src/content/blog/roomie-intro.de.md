@@ -1,6 +1,6 @@
 ---
 title: "roomie stellt sich vor"
-description: "Ein nerdiges und personalisiertes Old-School-Intercom, mit dem sich Groß und Klein Zuhause von verschiedenen Zimmern aus unterhalten kann — realisiert mit ESP32-Mikrocontrollern."
+description: "Ein nerdiges und personalisierbares Old-School-Intercom, mit dem sich Groß und Klein Zuhause von verschiedenen Zimmern aus unterhalten kann — realisiert mit ESP32-Mikrocontrollern."
 date: 2026-09-01
 locale: de
 translationId: roomie-intro

@@ -9,8 +9,8 @@ export const defaultLocale: Locale = 'de';
 
 export const ui = {
 	de: {
-		'site.title': 'Roomie',
-		'site.description': 'Roomie ist eine broker-lose Zimmer-zu-Zimmer-Gegensprechanlage.',
+		'site.title': 'roomie',
+		'site.description': 'Ein pädagogisches Intercom-Projekt',
 
 		'nav.home': 'Start',
 		'nav.blog': 'Blog',
@@ -18,13 +18,13 @@ export const ui = {
 		'brand.sub': 'Ein pädagogisches Intercom-Projekt',
 
 		'hero.tagline.prefix':
-			'Lasst mich roomie vorstellen: Ein nerdiges und personalisiertes Old-School-Intercom, mit dem sich Groß und Klein Zuhause unterhalten kann — ',
+			'Lasst mich roomie vorstellen: Ein nerdiges und personalisierbares Old-School-Intercom, mit dem sich Groß und Klein Zuhause unterhalten kann — ',
 		'hero.tagline.highlight': 'realisiert mit ESP32-Mikrocontrollern.',
 
 		'quote.text':
-			'Als Patenonkel eines vierjährigen Bubs wollte ich ein technisches System schaffen, das Kinder spielerisch an Kommunikationstechnik heranführt. Wichtig war mir hierbei, auf Bildschirmzeit mit funktionsüberladenen, süchtig machenden Smartphones zu verzichten.',
+			'Als Patenonkel eines kleinen Bubs wollte ich ein technisches System schaffen, das Kinder spielerisch an Kommunikationstechnik heranführt. Wichtig war mir hierbei, auf Bildschirmzeit mit funktionsüberladenen, süchtig machenden Smartphones zu verzichten.',
 		'quote.attribution': '— Dominik',
-		'quote.readMore': '→ ganzen Blogbeitrag lesen',
+		'quote.readMore': '→ den ganzen Blogbeitrag lesen',
 
 
 		'feature.aec.title': 'Vollduplex, echofrei',
@@ -34,9 +34,9 @@ export const ui = {
 		'feature.mdns.desc':
 			'Geräte finden sich gegenseitig per mDNS im lokalen Netzwerk — keine App, kein Konto, nichts läuft über das Internet.',
 
-		'guide.title': 'Anleitung',
+		'guide.title': 'Kurzanleitung',
 		'guide.desc':
-			'Eine kurze, comicartige Anleitung zur Einrichtung deines Geräts — hier direkt lesen oder als PDF öffnen.',
+			'Eine kurze, comicartige Anleitung zur Einrichtung deines Geräts — hier direkt lesen oder als PDF herunterladen.',
 		'guide.openPdf': 'PDF öffnen ↗',
 		'guide.deOnly': '',
 
@@ -55,8 +55,8 @@ export const ui = {
 		'lang.notAvailable': 'Diese Seite ist nur auf Deutsch verfügbar',
 	},
 	en: {
-		'site.title': 'Roomie',
-		'site.description': 'Roomie is a broker-less room-to-room intercom.',
+		'site.title': 'roomie',
+		'site.description': 'An educational intercom project',
 
 		'nav.home': 'Home',
 		'nav.blog': 'Blog',
@@ -68,7 +68,7 @@ export const ui = {
 		'hero.tagline.highlight': 'running on ESP32 platforms.',
 
 		'quote.text':
-			"As a godfather raising a 4-year-old lad, I wanted to provide a system that introduces kids to communication technology through real conversations, in a setup that's fun to use. A setup that reduces screen time away from feature-overloaded, addictive smartphones.",
+			"As a godfather raising a young lad, I wanted to provide a system that introduces kids to communication technology through real conversations, in a setup that's fun to use. A setup that reduces screen time away from feature-overloaded, addictive smartphones.",
 		'quote.attribution': '— Dominik',
 		'quote.readMore': '→ read the whole blog post',
 
@@ -80,9 +80,9 @@ export const ui = {
 		'feature.mdns.desc':
 			'Units discover each other over mDNS on your local network — no app, no account, nothing routed through the internet.',
 
-		'guide.title': 'Setup guide',
+		'guide.title': 'Quick setup guide',
 		'guide.desc':
-			"A short comic-style walkthrough for setting up your unit — read it right here or open the PDF.",
+			"A short comic-style walkthrough for setting up your unit — read it right here or download the PDF.",
 		'guide.openPdf': 'Open PDF ↗',
 		'guide.deOnly': 'The guide is currently only available in German.',
 
