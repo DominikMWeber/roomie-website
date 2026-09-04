@@ -8,6 +8,10 @@ const locale: Locale = 'en';
 const t = useTranslations(locale);
 ---
 
-<BaseLayout title={t('site.title')} description={t('site.description')} locale={locale}>
+<BaseLayout
+	title={`${t('site.title')} · ${t('brand.sub')}`}
+	description={t('site.description')}
+	locale={locale}
+>
 	<StartPageBody locale={locale} />
 </BaseLayout>

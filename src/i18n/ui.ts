@@ -17,6 +17,9 @@ export const ui = {
 
 		'brand.sub': 'Ein pädagogisches Intercom-Projekt',
 
+		'hero.wip':
+			'Diese Website ist noch im Aufbau. Die aktuelle Version ist lediglich eine Vorschau und repräsentiert nicht den eigentlichen Stand des Projekts.',
+
 		'hero.tagline.prefix':
 			'Lasst mich roomie vorstellen: Ein nerdiges und personalisierbares Old-School-Intercom, mit dem sich Groß und Klein Zuhause unterhalten kann — ',
 		'hero.tagline.highlight': 'realisiert mit ESP32-Mikrocontrollern.',
@@ -62,6 +65,8 @@ export const ui = {
 		'nav.blog': 'Blog',
 
 		'brand.sub': 'An educational intercom project',
+
+		'hero.wip': "This website is still under construction. The current version is just a draft and does not represent the actual state of the project.",
 
 		'hero.tagline.prefix':
 			'Let me introduce roomie: an old-school, nerdy and customizable intercom system that lets roommates talk to each other at home — ',
