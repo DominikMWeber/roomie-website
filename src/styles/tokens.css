@@ -24,6 +24,8 @@
 	--font-display: 'Space Grotesk', sans-serif;
 	--font-body: 'Lexend', sans-serif;
 	--font-mono: 'JetBrains Mono', monospace;
+	/* rounded display face, used only for the "roomie" wordmark */
+	--font-brand: 'Fredoka', 'Space Grotesk', sans-serif;
 }
 
 /*
