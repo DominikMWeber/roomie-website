@@ -47,6 +47,7 @@ export const ui = {
 		'blog.by': 'von',
 		'blog.notTranslated': '',
 
+		'footer.about': 'Über mich',
 		'footer.impressum': 'Impressum',
 		'footer.datenschutz': 'Datenschutz',
 		'footer.aiUsage': 'KI-Nutzung',
@@ -93,6 +94,7 @@ export const ui = {
 		'blog.notTranslated':
 			"This post isn't translated into English yet — showing the German version.",
 
+		'footer.about': 'About me',
 		'footer.impressum': 'Impressum',
 		'footer.datenschutz': 'Privacy Policy',
 		'footer.aiUsage': 'AI Usage',

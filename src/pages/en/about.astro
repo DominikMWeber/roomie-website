@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import type { Locale } from '../../i18n/ui';
+
+const locale: Locale = 'en';
+---
+
+<BaseLayout title="About me · Roomie" description="About me and how roomie came to be." locale={locale}>
+	<h1>About me</h1>
+	<p class="placeholder">
+		Coming soon! This page is still a work in progress. There'll soon be more here about me.
+	</p>
+</BaseLayout>
+
+<style>
+	h1 {
+		margin: 0 0 28px;
+		font-size: 2.6rem;
+	}
+	.placeholder {
+		border: 2px dashed var(--ink-soft);
+		border-radius: var(--radius-md);
+		padding: 24px;
+		color: var(--ink-soft);
+		font-family: var(--font-mono);
+		font-size: 0.9rem;
+		line-height: 1.6;
+	}
+	@media (max-width: 700px) {
+		h1 {
+			font-size: 2rem;
+		}
+	}
+</style>

@@ -13,6 +13,7 @@ const t = useTranslations(locale);
 <footer>
 	<p>roomie — {t('brand.sub')}</p>
 	<p class="legal-links">
+		<a href={getRelativeLocaleUrl(locale, '/about')}>{t('footer.about')}</a> ·
 		<a href="/impressum">{t('footer.impressum')}</a> ·
 		<a href="/datenschutz">{t('footer.datenschutz')}</a> ·
 		<a href={getRelativeLocaleUrl(locale, '/ai-usage')}>{t('footer.aiUsage')}</a>
