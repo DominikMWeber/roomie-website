@@ -30,12 +30,18 @@ export const ui = {
 		'quote.readMore': '→ den ganzen Blogbeitrag lesen',
 
 
-		'feature.aec.title': 'Vollduplex, echofrei',
-		'feature.aec.desc':
-			'Beide Seiten können gleichzeitig sprechen. Eingebautes AEC verhindert, dass ein Gerät seinen eigenen Lautsprecher über das Mikrofon hört.',
-		'feature.mdns.title': 'Findet seinen Partner selbst',
-		'feature.mdns.desc':
-			'Geräte finden sich gegenseitig per mDNS im lokalen Netzwerk — keine App, kein Konto, nichts läuft über das Internet.',
+		'feature.design.title': 'Einfache Designsprache!',
+		'feature.design.desc':
+			'Das Design von roomie soll an die Spielkonsolen der 90er und 2000er erinnern. Die Bedienelemente sind selbsterklärend: zwei Arcade-Buttons für eingehende und ausgehende Anrufe und ein analoger Lautstärke-Drehregler.',
+		'feature.build.title': 'Zum Nachbauen!',
+		'feature.build.desc':
+			'Jeder kann sich seinen eigenen roomie zusammenbauen. Natürlich brauchst Du mindestens zwei Einheiten zum Telefonieren. Alle notwendigen Software- und Hardware-Dateien findest Du zur freien Verwendung im verlinkten Repository!',
+		'feature.personalize.title': 'Personalisiert losquatschen!',
+		'feature.personalize.desc':
+			'Für roomie brauchst Du keine App und keinen Account. Das System läuft komplett in Deinem lokalen Netzwerk und spielt dabei Deine persönlichen Lieblingsklänge, die Du auf der eingesteckten SD-Karte ablegst.',
+		'feature.dev.title': 'Professionell entwickelt!',
+		'feature.dev.desc':
+			'roomie basiert auf ESP32S3-Mikrocontrollern mit einer eigens entwickelten Hardwareplatine. Programmiert mit VS Code, PlatformIO und Espressif IDF/FreeRTOS. Die roomie-Einheiten unterhalten sich im Netzwerk über UDP und CoAP.',
 
 		'guide.title': 'Kurzanleitung',
 		'guide.desc':
@@ -78,12 +84,18 @@ export const ui = {
 		'quote.readMore': '→ read the whole blog post',
 
 
-		'feature.aec.title': 'Full-duplex, echo-free',
-		'feature.aec.desc':
-			'Both sides can talk at once. Onboard AEC keeps each unit from hearing its own speaker through the mic.',
-		'feature.mdns.title': 'Finds its own peer',
-		'feature.mdns.desc':
-			'Units discover each other over mDNS on your local network — no app, no account, nothing routed through the internet.',
+		'feature.design.title': 'Simple design language!',
+		'feature.design.desc':
+			"roomie's design takes inspiration from the game consoles of the 90s and 2000s. The controls are self-explanatory: two arcade buttons for incoming and outgoing calls, and an analog volume dial.",
+		'feature.build.title': 'Build your own!',
+		'feature.build.desc':
+			"Anyone can build their own roomie. You'll need at least two units to talk to each other, of course. All the software and hardware files you need are freely available in the linked repository!",
+		'feature.personalize.title': 'Personalized chit-chat!',
+		'feature.personalize.desc':
+			'roomie needs no app and no account. The system runs entirely on your local network, playing your favorite personal sounds from the SD card you plug in.',
+		'feature.dev.title': 'Professionally engineered!',
+		'feature.dev.desc':
+			'roomie runs on ESP32-S3 microcontrollers on a custom-designed hardware board. Built with VS Code, PlatformIO, and the Espressif IDF/FreeRTOS. roomie units talk to each other over the network via UDP and CoAP.',
 
 		'guide.title': 'Quick setup guide',
 		'guide.desc':

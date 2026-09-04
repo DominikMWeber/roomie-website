@@ -10,16 +10,28 @@ const t = useTranslations(locale);
 
 const features = [
 	{
-		title: t('feature.aec.title'),
-		desc: t('feature.aec.desc'),
-		bg: 'var(--pink-soft)',
-		icon: 'check' as const,
+		title: t('feature.design.title'),
+		desc: t('feature.design.desc'),
+		bg: 'var(--cream)',
+		icon: 'controller' as const,
 	},
 	{
-		title: t('feature.mdns.title'),
-		desc: t('feature.mdns.desc'),
+		title: t('feature.build.title'),
+		desc: t('feature.build.desc'),
+		bg: 'var(--pink-soft)',
+		icon: 'wrench' as const,
+	},
+	{
+		title: t('feature.personalize.title'),
+		desc: t('feature.personalize.desc'),
 		bg: 'var(--lavender)',
-		icon: 'wifi' as const,
+		icon: 'music' as const,
+	},
+	{
+		title: t('feature.dev.title'),
+		desc: t('feature.dev.desc'),
+		bg: 'var(--mint)',
+		icon: 'chip' as const,
 	},
 ];
 ---
@@ -28,30 +40,57 @@ const features = [
 	{
 		features.map((f) => (
 			<div class="feature-card" style={{ background: f.bg }}>
-				<div class="feature-icon">
-					{f.icon === 'check' ? (
+				<div class="feature-heading">
+					<div class="feature-icon">
+					{f.icon === 'controller' ? (
 						<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+							<rect x="3" y="9" width="18" height="8" rx="4" stroke="currentColor" stroke-width="2" />
 							<path
-								d="M5 13l4 4L19 7"
-								stroke="currentColor"
-								stroke-width="2.4"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							/>
-						</svg>
-					) : (
-						<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-							<circle cx="12" cy="12" r="3" fill="currentColor" />
-							<path
-								d="M5 12a7 7 0 0114 0M2 12a10 10 0 0120 0"
+								d="M7 11v4M5 13h4"
 								stroke="currentColor"
 								stroke-width="2"
 								stroke-linecap="round"
 							/>
+							<circle cx="15" cy="12" r="1" fill="currentColor" />
+							<circle cx="17.5" cy="14.5" r="1" fill="currentColor" />
+						</svg>
+					) : f.icon === 'wrench' ? (
+						<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+							<path
+								d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.8 2.8-2-2 2.8-2.8z"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+						</svg>
+					) : f.icon === 'music' ? (
+						<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+							<path
+								d="M9 18V5l10-2v13"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+							<circle cx="6.5" cy="18" r="2.5" stroke="currentColor" stroke-width="2" />
+							<circle cx="16.5" cy="16" r="2.5" stroke="currentColor" stroke-width="2" />
+						</svg>
+					) : (
+						<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+							<rect x="7" y="7" width="10" height="10" rx="1.5" stroke="currentColor" stroke-width="2" />
+							<rect x="10" y="10" width="4" height="4" stroke="currentColor" stroke-width="1.6" />
+							<path
+								d="M9 3v2M12 3v2M15 3v2M9 19v2M12 19v2M15 19v2M3 9h2M3 12h2M3 15h2M19 9h2M19 12h2M19 15h2"
+								stroke="currentColor"
+								stroke-width="1.6"
+								stroke-linecap="round"
+							/>
 						</svg>
 					)}
+					</div>
+					<h2>{f.title}</h2>
 				</div>
-				<h2>{f.title}</h2>
 				<p>{f.desc}</p>
 			</div>
 		))
@@ -69,8 +108,22 @@ const features = [
 		border: var(--border);
 		border-radius: var(--radius-lg);
 		padding: 32px;
+		transition:
+			translate 0.2s ease,
+			box-shadow 0.2s ease;
+	}
+	.feature-card:hover {
+		translate: 0 -8px;
+		box-shadow: 5px 5px 0 var(--ink);
+	}
+	.feature-heading {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		margin-bottom: 18px;
 	}
 	.feature-icon {
+		flex-shrink: 0;
 		width: 60px;
 		height: 60px;
 		border-radius: 50%;
@@ -80,11 +133,10 @@ const features = [
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-bottom: 18px;
 	}
 	.feature-card h2 {
+		margin: 0;
 		font-size: 1.4rem;
-		margin-bottom: 10px;
 	}
 	.feature-card p {
 		margin: 0;
