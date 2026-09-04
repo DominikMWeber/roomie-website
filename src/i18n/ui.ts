@@ -38,6 +38,7 @@ export const ui = {
 		'guide.desc':
 			'Eine kurze, comicartige Anleitung zur Einrichtung deines Geräts — hier direkt lesen oder als PDF öffnen.',
 		'guide.openPdf': 'PDF öffnen ↗',
+		'guide.deOnly': '',
 
 		'blog.index.title': 'Blog',
 		'blog.recent.title': 'Neueste Blogbeiträge',
@@ -82,6 +83,7 @@ export const ui = {
 		'guide.desc':
 			"A short comic-style walkthrough for setting up your unit — read it right here or open the PDF.",
 		'guide.openPdf': 'Open PDF ↗',
+		'guide.deOnly': 'The guide is currently only available in German.',
 
 		'blog.index.title': 'Blog',
 		'blog.recent.title': 'Recent blog posts',
