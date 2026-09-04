@@ -2,16 +2,49 @@
 
 ---
 
-<html lang="en">
+<html lang="de">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<meta name="robots" content="noindex" />
+		<title>roomie</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<main>
+			<h1>Hier entsteht ein Webauftritt.</h1>
+			<p class="en">A website is on its way.</p>
+		</main>
 	</body>
 </html>
+
+<style>
+	:global(body) {
+		margin: 0;
+		font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+		color: #14181c;
+		background: #ffffff;
+	}
+	main {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		padding: 24px;
+		text-align: center;
+	}
+	h1 {
+		margin: 0;
+		font-size: clamp(1.6rem, 5vw, 2.6rem);
+		font-weight: 700;
+	}
+	.en {
+		margin: 0;
+		font-size: 1.05rem;
+		color: #5b646a;
+	}
+</style>
