@@ -1,0 +1,44 @@
+---
+const path = Astro.url.pathname;
+const isActive = (href: string) => path === href || path === `${href}/`;
+---
+
+<footer>
+	<nav aria-label="Rechtliches">
+		<a href="/" aria-current={isActive('/') ? 'page' : undefined}>Startseite</a>
+		<span aria-hidden="true">·</span>
+		<a href="/impressum" aria-current={isActive('/impressum') ? 'page' : undefined}>Impressum</a>
+		<span aria-hidden="true">·</span>
+		<a href="/datenschutz" aria-current={isActive('/datenschutz') ? 'page' : undefined}>
+			Datenschutz
+		</a>
+	</nav>
+</footer>
+
+<style>
+	footer {
+		flex-shrink: 0;
+		padding: 24px;
+		border-top: 1px solid #e2e4e6;
+		text-align: center;
+		font-size: 0.9rem;
+		color: #5b646a;
+	}
+	nav {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		justify-content: center;
+	}
+	a {
+		color: #14181c;
+		text-decoration: none;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+	a[aria-current='page'] {
+		color: #5b646a;
+		text-decoration: none;
+	}
+</style>

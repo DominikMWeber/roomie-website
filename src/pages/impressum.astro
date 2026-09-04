@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title="Impressum · roomie"
+	description="Impressum und Anbieterkennzeichnung für die roomie-Website."
+>
+	<h1>Impressum</h1>
+
+	<section>
+		<h2>Angaben gemäß § 5 DDG</h2>
+		<address>
+			Dominik Weber<br />
+			Ginsterweg 23A<br />
+			90480 Nürnberg
+		</address>
+	</section>
+
+	<section>
+		<h2>Kontakt</h2>
+		<p>
+			Telefon: <a href="tel:+4915234174658">+49 152 3417 4658</a><br />
+			E-Mail: <a href="mailto:dm.weber@outlook.de">dm.weber@outlook.de</a>
+		</p>
+	</section>
+
+	<section>
+		<h2>Redaktionell verantwortlich</h2>
+		<address>
+			Dominik Weber<br />
+			Ginsterweg 23A<br />
+			90480 Nürnberg
+		</address>
+	</section>
+
+	<p class="source">
+		Quelle: <a href="https://www.e-recht24.de" rel="nofollow">eRecht24</a>
+	</p>
+</BaseLayout>
+
+<style>
+	h1 {
+		margin: 0 0 28px;
+		font-size: 2.2rem;
+	}
+	section + section {
+		margin-top: 28px;
+	}
+	h2 {
+		font-size: 1.2rem;
+		margin: 0 0 10px;
+	}
+	address {
+		font-style: normal;
+		line-height: 1.7;
+	}
+	p {
+		margin: 0;
+		line-height: 1.7;
+	}
+	.source {
+		margin-top: 32px;
+		font-family: ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Menlo, monospace;
+		font-size: 0.8rem;
+		color: #5b646a;
+	}
+	@media (max-width: 700px) {
+		h1 {
+			font-size: 1.8rem;
+		}
+	}
+</style>
