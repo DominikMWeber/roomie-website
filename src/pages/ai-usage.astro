@@ -5,32 +5,166 @@ import type { Locale } from '../i18n/ui';
 const locale: Locale = 'de';
 ---
 
-<BaseLayout title="KI-Nutzung · Roomie" description="Transparenzhinweis zur KI-Nutzung" locale={locale}>
+<BaseLayout
+	title="KI-Nutzung · Roomie"
+	description="Transparenzhinweis zur KI-Nutzung bei Website, Intercom-Entwicklung und Dokumentation."
+	locale={locale}
+>
 	<h1>KI-Nutzung</h1>
-	<p class="placeholder">
-		[PLATZHALTER: Hinweis einfügen, wo und wie KI-Werkzeuge bei dieser Website eingesetzt wurden
-		— z. B. bei der Entwicklung des Codes, bei Texten/Übersetzungen oder bei Illustrationen —
-		sowie eine Einordnung, welche Inhalte menschlich geprüft bzw. verantwortet werden.]
+
+	<p class="lead">
+		Die Welt wird überschwemmt mit Inhalten, bei denen keiner mehr wirklich weiß, was davon überhaupt noch von Menschenhand erstellt wurde oder was hauptsächlich von einer generativen KI kommt. 
+		Die Arbeit mit generativer KI ist auch für mich ein großer Mehrwert, aber ich bin der Meinung, dass der kreative Schaffensprozess und die technische Leitung in der Hand des Menschen bleiben sollte.
+		Ich versuche deshalb auf dieser Seite nachvollziehbar "aufzudröseln", an welcher Stelle und in welchem Umfang ich auf den Einsatz von generativer KI zurückgegriffen haben.
+		Im Folgenden unterscheide ich zwischen dieser Website, der Entwicklung des eigentlichen Intercom-Systems und dessen Dokumentation.
 	</p>
+
+	<section class="card card--mint">
+		<h2>Diese Website</h2>
+		<p>
+			Sofern nicht anders gekennzeichnet, stammen die Inhalte dieser Website von mir und nicht
+			von einer KI. Die Inhalte aller Blogbeiträge entstehen vollständig in Eigenarbeit ohne generative KI – die einzige
+			Ausnahme sind Übersetzungen zwischen Deutsch und Englisch, die ich anschließend manuell
+			überarbeite und prüfe. Das habe ich unter dem jeweiligen Beitrag vermerkt. Auch auf eine
+			KI-gestützte Rechtschreib- und Grammatikprüfung verzichte ich bewusst – den ein oder
+			anderen Fehler bitte ich deshalb zu entschuldigen&nbsp;;-)
+		</p>
+		<div class="split">
+			<div>
+				<h3>Ohne KI</h3>
+				<ul>
+					<li>Idee und Designsprache</li>
+					<li>Sämtliche Inhalte und Blogeinträge in der ursprünglichen Fassung</li>
+				</ul>
+			</div>
+			<div>
+				<h3>Mit KI-Unterstützung</h3>
+				<ul>
+					<li>
+						Technische Umsetzung und Deployment der Website – das ist nicht mein fachlicher Schwerpunkt, hier habe ich auf Claude Code zurückgegriffen
+					</li>
+					<li>
+						Übersetzungen zwischen Deutsch und Englisch, anschließend manuelle Überarbeitung und Prüfung 
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="card card--sky">
+		<h2>Entwicklung des Intercoms</h2>
+		<p>
+			Während der Entwicklung von roomie habe ich auf ChatGPT, Claude Code und GitHub Copilot zurückgegriffen. Die Anteile
+			sauber zu trennen ist schwierig, aber ungefähr sieht es so aus:
+		</p>
+		<div class="split">
+			<div>
+				<h3>Hauptsächlich ohne KI</h3>
+				<ul>
+					<li>Konzept, Spezifikation und Designsprache</li>
+					<li>System-, Firmware- und Zustands-Architektur</li>
+					<li>Treiberarchitektur</li>
+					<li>
+						Technische Schnittstellen zwischen den Software- und Systemmodulen
+					</li>
+					<li>Programmierrichtlinien</li>
+					<li>Schaltplan der Platine</li>
+				</ul>
+			</div>
+			<div>
+				<h3>Hauptsächlich mit KI</h3>
+				<ul>
+					<li>
+						Ausformulierung und Programmierung einzelner Softwaremodule mit GitHub Copilot oder Claude Code, mit anschließender Sichtung
+						und manuellem Testing – nahezu jede Programmzeile habe ich dabei noch einmal
+						händisch nachvollzogen und verstanden
+					</li>
+					<li>Grafische Erstellung der "roomie-Maskottchen", die Idee von knuffigen Taschenmonstern stammt von mir, die Generierung erfolgte mit ChatGPT</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="card card--lavender">
+		<h2>Dokumentation</h2>
+		<p>
+			Die Dokumentation stammt inhaltlich von mir; da ich diese auf Englisch verfasst habe, habe für sprachliche Korrekturen generative KI eingesetzt.
+		</p>
+	</section>
 </BaseLayout>
 
 <style>
 	h1 {
-		margin: 0 0 28px;
+		margin: 0 0 20px;
 		font-size: 2.6rem;
 	}
-	.placeholder {
-		border: 2px dashed var(--ink-soft);
-		border-radius: var(--radius-md);
-		padding: 24px;
-		color: var(--ink-soft);
+	.lead {
+		margin: 0 0 32px;
+		max-width: 62ch;
+		font-size: 1.15rem;
+		line-height: 1.7;
+	}
+	.card {
+		border: var(--border);
+		border-radius: var(--radius-lg);
+		padding: 32px;
+	}
+	.card + .card {
+		margin-top: 24px;
+	}
+	.card--mint {
+		background: var(--mint);
+	}
+	.card--sky {
+		background: var(--sky);
+	}
+	.card--lavender {
+		background: var(--lavender);
+	}
+	h2 {
+		font-size: 1.5rem;
+		margin: 0 0 16px;
+	}
+	.card p {
+		margin: 0 0 20px;
+		line-height: 1.7;
+	}
+	.card p:last-child {
+		margin-bottom: 0;
+	}
+	.split {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 28px;
+	}
+	.split h3 {
+		margin: 0 0 10px;
 		font-family: var(--font-mono);
-		font-size: 0.9rem;
+		font-size: 0.8rem;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+	}
+	.split ul {
+		margin: 0;
+		padding-left: 1.2em;
 		line-height: 1.6;
+	}
+	.split li {
+		margin-bottom: 8px;
+	}
+	.split li:last-child {
+		margin-bottom: 0;
 	}
 	@media (max-width: 700px) {
 		h1 {
 			font-size: 2rem;
+		}
+		.card {
+			padding: 24px;
+		}
+		.split {
+			grid-template-columns: 1fr;
+			gap: 20px;
 		}
 	}
 </style>
