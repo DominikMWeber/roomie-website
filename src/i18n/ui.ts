@@ -47,7 +47,7 @@ export const ui = {
 
 		'guide.title': 'Kurzanleitung',
 		'guide.desc':
-			'Eine kurze, comicartige Anleitung zur Einrichtung deines Geräts — hier direkt lesen oder als PDF herunterladen.',
+			'Eine kurze, comicartige Anleitung zur Einrichtung deines roomie-Geräts. Hier direkt lesen oder als PDF herunterladen.',
 		'guide.openPdf': 'PDF öffnen ↗',
 		'guide.deOnly': '',
 
@@ -103,7 +103,7 @@ export const ui = {
 
 		'guide.title': 'Quick setup guide',
 		'guide.desc':
-			"A short comic-style walkthrough for setting up your unit — read it right here or download the PDF.",
+			"A short comic-style walkthrough for setting up your roomie unit. Read it right here or download the PDF.",
 		'guide.openPdf': 'Open PDF ↗',
 		'guide.deOnly': 'The guide is currently only available in German.',
 
