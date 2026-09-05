@@ -20,6 +20,8 @@ Developing roomie was also intended to be a sustainable learning experience for 
 
 The method that probably influenced roomie's design the most is the concept of "putting information in the world" from Don Norman's book *The Design of Everyday Things*: make devices discoverable and so easy to understand that they become self-explanatory. This is the major mantra of human-centered design — making machines align to human behavior, rather than making humans satisfy the machine's needs.
 
+With this website, I want to reach all of you: This website is intended to be a resource for tech enthusiasts who want to build roomie together with their family, kids, roommates, or partner and use it at home. The website’s playful design shouldn’t obscure the fact that roomie is the result of semi-professional development work. For the future, I plan to use this project to offer a free self-study course on this website that provides an introduction to professional firmware development at technical college level.
+
 Many thanks to my friend Isabell Waghals for designing the PCB layout.
 
 *Notes on the use of AI: The english version of this post was written entirely without the use of genAI.*

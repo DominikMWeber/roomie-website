@@ -20,6 +20,8 @@ Die Entwicklung von roomie sollte für mich von Anfang an eine nachhaltige Lerne
 
 Die Methode, die roomies Design wahrscheinlich am stärksten geprägt hat, ist das Konzept vom „Wissen in der Welt“ aus Don Normans Buch *The Design of Everyday Things*: Die Idee ist, Geräte so leicht verständlich zu machen, dass sie beim Ausprobieren selbsterklärend werden. Das ist das zentrale Leitmotiv des *Human-centered Design* — Maschinen sollten menschlichem Verhalten entsprechen, statt Menschen dazu bringen zu müssen, sich den Anforderungen des Geräts zu fügen.
 
+Mit dieser Website möchte ich verschiedene Zielgruppen ansprechen: Diese Website soll eine Anlaufstelle für Technikinteressierte sein, die roomie zusammen mit der Familie, den Kids, den WG-Kolleginnen oder dem Partner nachbauen möchten und Zuhause nutzen möchten. Das verspielte Erscheinungsbild der Website soll dabei nicht darüber hinwegtäuschen, dass hinter roomie eine semi-professionelle Entwicklungsarbeit steckt. In Zukunft möchte ich dieses Projekt ebenfalls nutzen, um auf dieser Website einen kostenlosen Selbstlernkurs für die Einführung in professionelle Firmware-Entwicklung auf Fachschul- und Hochschulniveau anzubieten.
+
 Abschließend möchte ich mich bei meiner Freundin Isabell Waghals für das Design des Platinenlayouts bedanken.
 
 *Hinweise zur KI-Nutzung: Der ursprüngliche Beitrag auf Englisch wurde ohne Einsatz von generativer KI verfasst. Diese deutsche Übersetzung wurde mit Claude Code übersetzt und anschließend manuell von mir überarbeitet und geprüft.*
