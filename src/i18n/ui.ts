@@ -14,6 +14,8 @@ export const ui = {
 
 		'nav.home': 'Start',
 		'nav.blog': 'Blog',
+		'nav.github': 'GitHub',
+		'nav.githubSoon': 'Bald verfügbar',
 
 		'brand.sub': 'Ein pädagogisches Intercom-Projekt',
 
@@ -69,6 +71,8 @@ export const ui = {
 
 		'nav.home': 'Home',
 		'nav.blog': 'Blog',
+		'nav.github': 'GitHub',
+		'nav.githubSoon': 'Coming soon',
 
 		'brand.sub': 'An educational intercom project',
 
