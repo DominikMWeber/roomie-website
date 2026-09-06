@@ -15,6 +15,7 @@ const t = useTranslations(locale);
 
 // The quote is an excerpt from the intro post — link straight to it.
 const introPostHref = getRelativeLocaleUrl(locale, '/blog/roomie-intro');
+const aboutHref = getRelativeLocaleUrl(locale, '/about');
 ---
 
 <section class="hero">
@@ -40,6 +41,9 @@ const introPostHref = getRelativeLocaleUrl(locale, '/blog/roomie-intro');
 	attribution={t('quote.attribution')}
 	readMoreLabel={t('quote.readMore')}
 	readMoreHref={introPostHref}
+	imageSrc="/images/authors/dominik-weber-large.png"
+	imageAlt="Dominik Weber"
+	imageHref={aboutHref}
 />
 
 <FeatureList locale={locale} />

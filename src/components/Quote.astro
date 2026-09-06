@@ -4,15 +4,35 @@ interface Props {
 	attribution: string;
 	readMoreLabel: string;
 	readMoreHref?: string;
+	imageSrc?: string;
+	imageAlt?: string;
+	imageHref?: string;
 }
-const { text, attribution, readMoreLabel, readMoreHref = '#' } = Astro.props;
+const {
+	text,
+	attribution,
+	readMoreLabel,
+	readMoreHref = '#',
+	imageSrc,
+	imageAlt = '',
+	imageHref,
+} = Astro.props;
 ---
 
 <section class="quote-card">
 	<div class="quote-inner">
-		<p>&ldquo;{text}&rdquo;</p>
-		<p class="attribution">{attribution}</p>
-		<a class="read-more" href={readMoreHref}>{readMoreLabel}</a>
+		<div class="quote-text">
+			<p>&ldquo;{text}&rdquo;</p>
+			<p class="attribution">{attribution}</p>
+			<a class="read-more" href={readMoreHref}>{readMoreLabel}</a>
+		</div>
+		{
+			imageSrc && (
+				<a class="quote-portrait-link" href={imageHref ?? '#'} aria-label={imageAlt}>
+					<img class="quote-portrait" src={imageSrc} width="160" height="160" alt={imageAlt} loading="lazy" decoding="async" />
+				</a>
+			)
+		}
 	</div>
 </section>
 
@@ -29,6 +49,12 @@ const { text, attribution, readMoreLabel, readMoreHref = '#' } = Astro.props;
 		border: var(--border-thin);
 		border-radius: var(--radius-md);
 		padding: 28px 32px;
+		display: flex;
+		align-items: center;
+		gap: 28px;
+	}
+	.quote-text {
+		flex: 1;
 	}
 	.quote-card p {
 		margin: 0;
@@ -44,5 +70,33 @@ const { text, attribution, readMoreLabel, readMoreHref = '#' } = Astro.props;
 		display: inline-block;
 		margin-top: 16px;
 		font-weight: 600;
+	}
+	.quote-portrait-link {
+		flex-shrink: 0;
+		display: block;
+		border-radius: 50%;
+		transition: translate 0.2s ease;
+	}
+	.quote-portrait-link:hover,
+	.quote-portrait-link:focus-visible {
+		translate: 0 -8px;
+	}
+	.quote-portrait {
+		display: block;
+		width: 160px;
+		height: 160px;
+		border-radius: 50%;
+		border: var(--border-thin);
+		transition: box-shadow 0.2s ease;
+	}
+	.quote-portrait-link:hover .quote-portrait,
+	.quote-portrait-link:focus-visible .quote-portrait {
+		box-shadow: 5px 5px 0 var(--ink);
+	}
+	@media (max-width: 700px) {
+		.quote-inner {
+			flex-direction: column-reverse;
+			text-align: center;
+		}
 	}
 </style>
