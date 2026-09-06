@@ -14,8 +14,11 @@ export const ui = {
 
 		'nav.home': 'Start',
 		'nav.blog': 'Blog',
+		'nav.build': 'Bauen',
+		'nav.dev': 'Dev',
 		'nav.github': 'GitHub',
-		'nav.githubSoon': 'Bald verfügbar',
+		'nav.docs': 'Docs',
+		'nav.comingSoon': 'Bald verfügbar',
 
 		'brand.sub': 'Ein freies pädagogisches Intercom-Projekt',
 
@@ -71,8 +74,11 @@ export const ui = {
 
 		'nav.home': 'Start',
 		'nav.blog': 'Blog',
+		'nav.build': 'Build',
+		'nav.dev': 'Dev',
 		'nav.github': 'GitHub',
-		'nav.githubSoon': 'Coming soon',
+		'nav.docs': 'Docs',
+		'nav.comingSoon': 'Coming soon',
 
 		'brand.sub': 'A free educational intercom project',
 
