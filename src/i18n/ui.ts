@@ -10,21 +10,21 @@ export const defaultLocale: Locale = 'de';
 export const ui = {
 	de: {
 		'site.title': 'roomie',
-		'site.description': 'Ein pädagogisches Intercom-Projekt',
+		'site.description': 'Ein freies pädagogisches Intercom-Projekt',
 
 		'nav.home': 'Start',
 		'nav.blog': 'Blog',
 		'nav.github': 'GitHub',
 		'nav.githubSoon': 'Bald verfügbar',
 
-		'brand.sub': 'Ein pädagogisches Intercom-Projekt',
+		'brand.sub': 'Ein freies pädagogisches Intercom-Projekt',
 
 		'hero.wip':
 			'Diese Website ist noch im Aufbau. Die aktuelle Version ist lediglich eine Vorschau und repräsentiert nicht den eigentlichen Stand des Projekts.',
 
 		'hero.tagline.prefix':
-			'Lasst mich roomie vorstellen: Ein nerdiges und personalisierbares Old-School-Intercom, mit dem sich Groß und Klein Zuhause unterhalten kann — ',
-		'hero.tagline.highlight': 'realisiert mit ESP32-Mikrocontrollern.',
+			'Lasst mich roomie vorstellen: Ein nerdiges und personalisierbares Old-School-Intercom, mit dem sich Groß und Klein Zuhause unterhält — ',
+		'hero.tagline.highlight': 'roomie ist ein unabhängiges, nicht-kommerzielles Open-Source-Projekt zum Lernen und Selberbauen.',
 
 		'quote.text':
 			'Als Patenonkel eines kleinen Bubs wollte ich ein technisches System schaffen, das Kinder spielerisch an Kommunikationstechnik heranführt. Wichtig war mir hierbei, auf Bildschirmzeit mit funktionsüberladenen, süchtig machenden Smartphones zu verzichten.',
@@ -67,20 +67,21 @@ export const ui = {
 	},
 	en: {
 		'site.title': 'roomie',
-		'site.description': 'An educational intercom project',
+		'site.description': 'A free educational intercom project',
 
-		'nav.home': 'Home',
+		'nav.home': 'Start',
 		'nav.blog': 'Blog',
 		'nav.github': 'GitHub',
 		'nav.githubSoon': 'Coming soon',
 
-		'brand.sub': 'An educational intercom project',
+		'brand.sub': 'A free educational intercom project',
 
 		'hero.wip': "This website is still under construction. The current version is just a draft and does not represent the actual state of the project.",
 
 		'hero.tagline.prefix':
-			'Let me introduce roomie: an old-school, nerdy and customizable intercom system that lets roommates talk to each other at home — ',
-		'hero.tagline.highlight': 'running on ESP32 platforms.',
+			'Let me introduce roomie: a nerdy and customizable old-school intercom that lets young and old talk to each other at home — ',
+		'hero.tagline.highlight':
+			"roomie is an independent, non-commercial open-source project for learning and building it yourself.",
 
 		'quote.text':
 			"As a godfather raising a young lad, I wanted to provide a system that introduces kids to communication technology through real conversations, in a setup that's fun to use. A setup that reduces screen time away from feature-overloaded, addictive smartphones.",
