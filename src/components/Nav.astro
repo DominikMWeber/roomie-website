@@ -19,6 +19,7 @@ const isCourses = currentPath === coursesHref;
 ---
 
 <nav class="nav-links" aria-label={t('nav.home')}>
+	<div class="main-links">
 	<a
 		href={homeHref}
 		class:list={{ current: currentPath === homeHref }}
@@ -33,6 +34,7 @@ const isCourses = currentPath === coursesHref;
 	<a href={coursesHref} class:list={{ current: isCourses }} aria-current={isCourses ? 'page' : undefined}
 		>{t('nav.courses')}</a
 	>
+	</div>
 	<div class="dev-zone">
 		<details class="dev-dropdown">
 			<summary class="dev-trigger">
@@ -83,6 +85,10 @@ const isCourses = currentPath === coursesHref;
 		gap: 6px;
 		font-weight: 600;
 		font-size: 1.05rem;
+	}
+	.main-links {
+		display: flex;
+		gap: 6px;
 	}
 	.nav-links a {
 		text-decoration: none;
@@ -161,5 +167,25 @@ const isCourses = currentPath === coursesHref;
 	}
 	.external-icon {
 		flex-shrink: 0;
+	}
+	/* Phones: the four page links form one row; Dev + language switch follow
+	   in the parent's flex-wrap flow and drop to a second row only if they don't fit. */
+	@media (max-width: 700px) {
+		.nav-links {
+			display: contents;
+		}
+		.main-links {
+			justify-content: center;
+			gap: 2px;
+		}
+		.nav-links a,
+		.dev-trigger {
+			padding: 8px 12px;
+		}
+		.dev-zone {
+			margin-left: 0;
+			padding-left: 0;
+			border-left: none;
+		}
 	}
 </style>
