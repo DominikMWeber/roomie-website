@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/ui';
+
+const locale: Locale = 'de';
+const t = useTranslations(locale);
+---
+
+<BaseLayout title="Kurse · Roomie" description="Kostenlose Moodle-Selbstlernkurse rund um roomie." locale={locale}>
+	<h1>{t('courses.title')}</h1>
+
+	<p class="wip-notice">{t('courses.notice')}</p>
+</BaseLayout>
+
+<style>
+	h1 {
+		margin: 0 0 20px;
+		font-size: 2.6rem;
+	}
+	.wip-notice {
+		border: 2px dashed var(--ink-soft);
+		border-radius: var(--radius-md);
+		padding: 24px;
+		margin: 0;
+		color: var(--ink-soft);
+		font-family: var(--font-mono);
+		font-size: 0.9rem;
+		line-height: 1.6;
+	}
+	@media (max-width: 700px) {
+		h1 {
+			font-size: 2rem;
+		}
+	}
+</style>

@@ -12,6 +12,10 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 const homeHref = getRelativeLocaleUrl(locale, '/').replace(/\/$/, '') || '/';
 const blogHref = getRelativeLocaleUrl(locale, '/blog').replace(/\/$/, '');
 const isBlog = currentPath === blogHref || currentPath.startsWith(`${blogHref}/`);
+const buildHref = getRelativeLocaleUrl(locale, '/build').replace(/\/$/, '');
+const isBuild = currentPath === buildHref;
+const coursesHref = getRelativeLocaleUrl(locale, '/courses').replace(/\/$/, '');
+const isCourses = currentPath === coursesHref;
 ---
 
 <nav class="nav-links" aria-label={t('nav.home')}>
@@ -23,8 +27,12 @@ const isBlog = currentPath === blogHref || currentPath.startsWith(`${blogHref}/`
 	<a href={blogHref} class:list={{ current: isBlog }} aria-current={isBlog ? 'page' : undefined}
 		>{t('nav.blog')}</a
 	>
-	<span class="nav-disabled" aria-disabled="true" title={t('nav.comingSoon')}>{t('nav.build')}</span>
-	<span class="nav-disabled" aria-disabled="true" title={t('nav.comingSoon')}>{t('nav.courses')}</span>
+	<a href={buildHref} class:list={{ current: isBuild }} aria-current={isBuild ? 'page' : undefined}
+		>{t('nav.build')}</a
+	>
+	<a href={coursesHref} class:list={{ current: isCourses }} aria-current={isCourses ? 'page' : undefined}
+		>{t('nav.courses')}</a
+	>
 	<div class="dev-zone">
 		<details class="dev-dropdown">
 			<summary class="dev-trigger">
