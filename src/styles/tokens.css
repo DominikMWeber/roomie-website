@@ -16,6 +16,8 @@
 	--teal: #1fd1b8;
 	--violet: #8c6bfa;
 
+	--pattern-dot: color-mix(in srgb, var(--ink) 14%, transparent);
+
 	--border: 3px solid var(--ink);
 	--border-thin: 2px solid var(--ink);
 	--radius-lg: 24px;

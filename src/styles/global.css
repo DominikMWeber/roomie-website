@@ -4,7 +4,9 @@
 
 body {
 	margin: 0;
-	background: var(--paper);
+	background-color: var(--paper);
+	background-image: radial-gradient(var(--pattern-dot) 1.5px, transparent 1.5px);
+	background-size: 24px 24px;
 	color: var(--ink);
 	font-family: var(--font-body);
 	font-size: 18px;
