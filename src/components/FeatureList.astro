@@ -12,7 +12,7 @@ const features = [
 	{
 		title: t('feature.design.title'),
 		desc: t('feature.design.desc'),
-		bg: 'var(--cream)',
+		bg: 'var(--mint)',
 		icon: 'controller' as const,
 	},
 	{
@@ -24,13 +24,13 @@ const features = [
 	{
 		title: t('feature.personalize.title'),
 		desc: t('feature.personalize.desc'),
-		bg: 'var(--lavender)',
+		bg: 'var(--cream)',
 		icon: 'music' as const,
 	},
 	{
 		title: t('feature.dev.title'),
 		desc: t('feature.dev.desc'),
-		bg: 'var(--mint)',
+		bg: 'var(--lavender)',
 		icon: 'chip' as const,
 	},
 ];
@@ -43,50 +43,13 @@ const features = [
 				<div class="feature-heading">
 					<div class="feature-icon">
 					{f.icon === 'controller' ? (
-						<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-							<rect x="3" y="9" width="18" height="8" rx="4" stroke="currentColor" stroke-width="2" />
-							<path
-								d="M7 11v4M5 13h4"
-								stroke="currentColor"
-								stroke-width="2"
-								stroke-linecap="round"
-							/>
-							<circle cx="15" cy="12" r="1" fill="currentColor" />
-							<circle cx="17.5" cy="14.5" r="1" fill="currentColor" />
-						</svg>
+						<img src="/images/icons/design-language.png" width="32" height="32" alt="" />
 					) : f.icon === 'wrench' ? (
-						<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-							<path
-								d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.8 2.8-2-2 2.8-2.8z"
-								stroke="currentColor"
-								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							/>
-						</svg>
+						<img src="/images/icons/build.png" width="32" height="32" alt="" />
 					) : f.icon === 'music' ? (
-						<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-							<path
-								d="M9 18V5l10-2v13"
-								stroke="currentColor"
-								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							/>
-							<circle cx="6.5" cy="18" r="2.5" stroke="currentColor" stroke-width="2" />
-							<circle cx="16.5" cy="16" r="2.5" stroke="currentColor" stroke-width="2" />
-						</svg>
+						<img src="/images/icons/personalize.png" width="32" height="32" alt="" />
 					) : (
-						<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-							<rect x="7" y="7" width="10" height="10" rx="1.5" stroke="currentColor" stroke-width="2" />
-							<rect x="10" y="10" width="4" height="4" stroke="currentColor" stroke-width="1.6" />
-							<path
-								d="M9 3v2M12 3v2M15 3v2M9 19v2M12 19v2M15 19v2M3 9h2M3 12h2M3 15h2M19 9h2M19 12h2M19 15h2"
-								stroke="currentColor"
-								stroke-width="1.6"
-								stroke-linecap="round"
-							/>
-						</svg>
+						<img src="/images/icons/dev.png" width="32" height="32" alt="" />
 					)}
 					</div>
 					<h2>{f.title}</h2>
