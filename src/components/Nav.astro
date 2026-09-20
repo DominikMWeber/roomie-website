@@ -20,10 +20,11 @@ const isBlog = currentPath === blogHref || currentPath.startsWith(`${blogHref}/`
 		class:list={{ current: currentPath === homeHref }}
 		aria-current={currentPath === homeHref ? 'page' : undefined}>{t('nav.home')}</a
 	>
-	<span class="nav-disabled" aria-disabled="true" title={t('nav.comingSoon')}>{t('nav.build')}</span>
 	<a href={blogHref} class:list={{ current: isBlog }} aria-current={isBlog ? 'page' : undefined}
 		>{t('nav.blog')}</a
 	>
+	<span class="nav-disabled" aria-disabled="true" title={t('nav.comingSoon')}>{t('nav.build')}</span>
+	<span class="nav-disabled" aria-disabled="true" title={t('nav.comingSoon')}>{t('nav.courses')}</span>
 	<div class="dev-zone">
 		<details class="dev-dropdown">
 			<summary class="dev-trigger">
