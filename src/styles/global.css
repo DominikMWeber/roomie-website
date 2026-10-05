@@ -94,3 +94,29 @@ a:hover {
 	rotate: 0.8deg;
 	opacity: 0.55;
 }
+
+/*
+  Washi tape: a semi-transparent pink strip with torn ends across the top
+  center of a box. Decorative only. Uses ::before, so it can't be combined
+  with .sketch on the same element.
+*/
+.tape {
+	position: relative;
+}
+.tape::before {
+	content: '';
+	position: absolute;
+	top: -15px;
+	left: 50%;
+	width: 128px;
+	height: 28px;
+	translate: -50% 0;
+	rotate: -3deg;
+	background: color-mix(in srgb, var(--pink) 42%, transparent);
+	pointer-events: none;
+	/* torn, zigzag short ends */
+	clip-path: polygon(
+		0 0, 100% 0, 97% 20%, 100% 40%, 97% 60%, 100% 80%, 97% 100%,
+		0 100%, 3% 80%, 0 60%, 3% 40%, 0 20%
+	);
+}
