@@ -4,11 +4,11 @@
 	--ink-soft: #5b646a;
 
 	/* pastel card backgrounds */
-	--cream: #fcefbc;
-	--mint: #caf3ca;
-	--sky: #b3e4ff;
-	--pink-soft: #ffd3ea;
-	--lavender: #e4d9ff;
+	--cream: #fdf6da;
+	--mint: #e2f8e2;
+	--sky: #d5f0ff;
+	--pink-soft: #ffe7f3;
+	--lavender: #f0eaff;
 
 	/* saturated accents */
 	--marker-yellow: #f5e017;
@@ -18,10 +18,12 @@
 
 	--pattern-dot: color-mix(in srgb, var(--ink) 14%, transparent);
 
-	--border: 3px solid var(--ink);
+	--border: 2px solid var(--ink);
 	--border-thin: 2px solid var(--ink);
 	--radius-lg: 24px;
 	--radius-md: 18px;
+	/* slightly uneven corners for the sketched double outline (.sketch) */
+	--radius-sketch: 20px 26px 22px 28px;
 
 	--font-display: 'Space Grotesk', sans-serif;
 	--font-body: 'Lexend', sans-serif;

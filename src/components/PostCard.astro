@@ -12,7 +12,7 @@ const Heading = headingLevel;
 ---
 
 <a class="post-card" href={href}>
-	<div class="post-card-image">
+	<div class="post-card-image sketch">
 		<img src={image} alt="" loading="lazy" decoding="async" />
 	</div>
 	<Heading>{title}</Heading>
@@ -33,9 +33,6 @@ const Heading = headingLevel;
 	}
 	.post-card-image {
 		aspect-ratio: 16 / 10;
-		border: var(--border);
-		border-radius: var(--radius-lg);
-		overflow: hidden;
 		margin-bottom: 18px;
 		transition: box-shadow 0.2s ease;
 	}
@@ -48,6 +45,8 @@ const Heading = headingLevel;
 		height: 100%;
 		object-fit: cover;
 		display: block;
+		/* clip the image here, not on the wrapper, so the sketch outline isn't cut off */
+		border-radius: var(--radius-sketch);
 	}
 	.post-card h2,
 	.post-card h3 {

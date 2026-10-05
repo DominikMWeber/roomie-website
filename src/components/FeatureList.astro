@@ -39,7 +39,7 @@ const features = [
 <div class="features">
 	{
 		features.map((f) => (
-			<div class="feature-card" style={{ background: f.bg }}>
+			<div class="feature-card sketch" style={{ background: f.bg }}>
 				<div class="feature-heading">
 					<div class="feature-icon">
 					{f.icon === 'controller' ? (
@@ -68,8 +68,6 @@ const features = [
 		margin-bottom: 28px;
 	}
 	.feature-card {
-		border: var(--border);
-		border-radius: var(--radius-lg);
 		padding: 32px;
 		transition:
 			translate 0.2s ease,

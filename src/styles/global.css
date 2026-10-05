@@ -62,3 +62,35 @@ a:hover {
 .marker:hover::before {
 	transform: scaleX(1);
 }
+
+/*
+  Sketched double outline for interactive cards: two strokes a fraction of a
+  degree apart, like a pencil that went around twice. The element itself has
+  no border; both outlines live on the pseudo-elements so the content stays
+  unrotated. Uses both ::before and ::after.
+*/
+.sketch {
+	position: relative;
+	border-radius: var(--radius-sketch);
+}
+.sketch::before,
+.sketch::after {
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-color: var(--ink);
+	pointer-events: none;
+}
+.sketch::before {
+	inset: -1px;
+	border-width: 2px;
+	border-radius: 22px 27px 19px 29px;
+	rotate: -0.6deg;
+}
+.sketch::after {
+	inset: 2px -2px -1px 2px;
+	border-width: 1px;
+	border-radius: 26px 20px 28px 21px;
+	rotate: 0.8deg;
+	opacity: 0.55;
+}
