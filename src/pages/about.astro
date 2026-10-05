@@ -1,12 +1,18 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import type { Locale } from '../i18n/ui';
+import '../styles/about.css';
 
 const locale: Locale = 'de';
+const introPostHref = getRelativeLocaleUrl(locale, '/blog/roomie-intro');
 ---
 
 <BaseLayout title="Über mich · Roomie" description="Über mich und die Entstehung von roomie." locale={locale}>
-	<h1>Über mich</h1>
+	<header class="page-head">
+		<h1>Über mich</h1>
+		<p class="page-sub">Die Person hinter roomie</p>
+	</header>
 
 	<section class="profile-hero tape">
 		<img
@@ -22,164 +28,77 @@ const locale: Locale = 'de';
 			<h2>Dominik Weber</h2>
 			<p class="tagline">Master of Engineering | Lehrkraft | Embedded-Systems-Ingenieur</p>
 			<p>Servus! Mein Name ist Dominik! Als Lehrkraft an einer Technikerschule für KI und als Ingenieur mit mehrjähriger Berufserfahrung im Bereich Firmware- und Embedded-Systems-Entwicklung verbinde ich leidenschaftlich Wissensvermittlung mit Engineering.</p>
-			<br />
 			<p>Ich bin der Meinung, dass viele Dinge im Leben so viel einfacher sein können, wenn man Sachverhalte verständlich aufbereitet und sich als Vermittler von Informationen in seine Mitmenschen hineinversetzen kann.</p>
 		</div>
 	</section>
 
-	<section class="profile-card" style={{ background: 'var(--mint)' }}>
-		<h2>Hobbys</h2>
-		<ul>
-			<li>Schlagzeuger in einer Metalband</li>
-			<li>Embedded- und Coding-Projekte</li>
-			<li>KI-bezogene Literatur und Projekte</li>
+	<section aria-labelledby="hobbies-heading">
+		<h2 id="hobbies-heading" class="section-title">Hobbys</h2>
+		<ul class="hobby-grid">
+			<li class="hobby-card" style={{ background: 'var(--mint)' }}>Schlagzeuger in einer Metalband</li>
+			<li class="hobby-card" style={{ background: 'var(--lavender)' }}>Embedded- und Coding-Projekte</li>
+			<li class="hobby-card" style={{ background: 'var(--cream)' }}>KI-bezogene Literatur und Projekte</li>
 		</ul>
 	</section>
 
-	<section class="profile-card" style={{ background: 'var(--pink-soft)' }}>
-		<h2>Arbeitserfahrung</h2>
-		<ul class="timeline">
-			<li>
-				<strong>Embedded Systems Engineer</strong>
-				<span class="meta">PCB Arts GmbH · Fürth, Bayern · seit 05/2026</span>
-				<ul>
-					<li>BSP-Entwicklung für Linux4Tegra auf NVIDIA-Jetson-Plattformen</li>
-				</ul>
-			</li>
-			<li>
-				<strong>Lehrkraft</strong>
-				<span class="meta">Staatliche Technikerschule Neumarkt i. d. OPf. · seit 09/2024</span>
-				<ul>
-					<li>Fachlicher Koordinator für die Fachrichtung KI</li>
-					<li>Berater der Lehrplankommission für KI</li>
-					<li>Fächer: Programmierung, KI, Informatik, Elektronik</li>
-				</ul>
-			</li>
-			<li>
-				<strong>Senior Engineer – Wissenschaftlicher Mitarbeiter</strong>
-				<span class="meta">
-					Fraunhofer IIS, Gruppe Medizinische Sensorsysteme · Erlangen · 08/2019–09/2022 (Vollzeit),
-					03/2023–08/2024 (Teilzeit)
-				</span>
-				<ul>
-					<li>Embedded-C-Entwickler für 32-bit Mikrocontroller (nRF52/STM32, FreeRTOS/Zephyr OS + BLE)</li>
-					<li>
-						Projektleiter und Systemarchitekt für ein Sensorsystem zur Validierung eines Mobilisierungssitzes (Partner: Daimler Truck AG)
-					</li>
-				</ul>
-			</li>
-		</ul>
+	<section aria-labelledby="work-heading">
+		<h2 id="work-heading" class="section-title">Arbeitserfahrung</h2>
+		<div class="timeline-card" style={{ background: 'var(--pink-soft)' }}>
+			<ol class="timeline">
+				<li>
+					<span class="when">seit 05/2026</span>
+					<strong>Embedded Systems Engineer</strong>
+					<span class="meta">PCB Arts GmbH · Fürth, Bayern</span>
+					<ul>
+						<li>BSP-Entwicklung für Linux4Tegra auf NVIDIA-Jetson-Plattformen</li>
+					</ul>
+				</li>
+				<li>
+					<span class="when">seit 09/2024</span>
+					<strong>Lehrkraft</strong>
+					<span class="meta">Staatliche Technikerschule Neumarkt i. d. OPf.</span>
+					<ul>
+						<li>Fachlicher Koordinator für die Fachrichtung KI</li>
+						<li>Berater der Lehrplankommission für KI</li>
+						<li>Fächer: Programmierung, KI, Informatik, Elektronik</li>
+					</ul>
+				</li>
+				<li>
+					<span class="when">08/2019–09/2022 (Vollzeit) · 03/2023–08/2024 (Teilzeit)</span>
+					<strong>Senior Engineer – Wissenschaftlicher Mitarbeiter</strong>
+					<span class="meta">Fraunhofer IIS, Gruppe Medizinische Sensorsysteme · Erlangen</span>
+					<ul>
+						<li>Embedded-C-Entwickler für 32-bit Mikrocontroller (nRF52/STM32, FreeRTOS/Zephyr OS + BLE)</li>
+						<li>
+							Projektleiter und Systemarchitekt für ein Sensorsystem zur Validierung eines Mobilisierungssitzes (Partner: Daimler Truck AG)
+						</li>
+					</ul>
+				</li>
+			</ol>
+		</div>
 	</section>
 
-	<section class="profile-card" style={{ background: 'var(--cream)' }}>
-		<h2>Ausbildung</h2>
-		<ul class="timeline">
-			<li>
-				<strong>Referendariat für das Lehramt an beruflichen Schulen, Fachrichtung Informationstechnik („Quereinstieg“)</strong>
-				<span class="meta">Technikerschule Neumarkt i. d. OPf. · 09/2022–07/2024 · Zweites Staatsexamen</span>
-			</li>
-			<li>
-				<strong>Masterstudiengang Elektronische und Mechatronische Systeme, Schwerpunkt Informationstechnik</strong>
-				<span class="meta">TH Nürnberg · 10/2017–08/2019 · M.Eng.</span>
-			</li>
-		</ul>
+	<section aria-labelledby="education-heading">
+		<h2 id="education-heading" class="section-title">Ausbildung</h2>
+		<div class="timeline-card" style={{ background: 'var(--cream)' }}>
+			<ol class="timeline">
+				<li>
+					<span class="when">09/2022–07/2024</span>
+					<strong>Referendariat für das Lehramt an beruflichen Schulen, Fachrichtung Informationstechnik („Quereinstieg“)</strong>
+					<span class="meta">Technikerschule Neumarkt i. d. OPf. · Zweites Staatsexamen</span>
+				</li>
+				<li>
+					<span class="when">10/2017–08/2019</span>
+					<strong>Masterstudiengang Elektronische und Mechatronische Systeme, Schwerpunkt Informationstechnik</strong>
+					<span class="meta">TH Nürnberg · M.Eng.</span>
+				</li>
+			</ol>
+		</div>
 	</section>
+
+	<a class="closing-card sketch" href={introPostHref}>
+		<h2>Warum ich roomie gebaut habe</h2>
+		<p>Die ganze Geschichte hinter roomie steht im ersten Blogbeitrag.</p>
+		<span class="cta">→ zum Blogbeitrag</span>
+	</a>
 </BaseLayout>
-
-<style>
-	h1 {
-		margin: 0 0 28px;
-		font-size: 2.6rem;
-	}
-	.profile-hero {
-		display: flex;
-		align-items: center;
-		gap: 32px;
-		background: var(--sky);
-		border: var(--border);
-		border-radius: var(--radius-lg);
-		padding: 32px;
-		margin-bottom: 28px;
-	}
-	.portrait {
-		flex-shrink: 0;
-		width: 160px;
-		height: 160px;
-		border-radius: 50%;
-	}
-	.profile-hero h2 {
-		margin: 0 0 6px;
-		font-size: 1.6rem;
-	}
-	.tagline {
-		margin: 0 0 12px;
-		font-family: var(--font-mono);
-		font-size: 0.9rem;
-		color: var(--ink-soft);
-	}
-	.profile-hero p:not(.tagline) {
-		margin: 0;
-		font-size: 1.05rem;
-		line-height: 1.6;
-	}
-	.profile-card {
-		border: var(--border);
-		border-radius: var(--radius-lg);
-		padding: 32px;
-		margin-bottom: 28px;
-	}
-	.profile-card h2 {
-		margin: 0 0 18px;
-		font-size: 1.4rem;
-	}
-	.profile-card ul {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-	.profile-card ul li {
-		font-size: 1.05rem;
-	}
-	.profile-card ul:not(.timeline) li {
-		padding-left: 1.4em;
-		position: relative;
-		margin-bottom: 10px;
-	}
-	.profile-card ul:not(.timeline) li::before {
-		content: '●';
-		position: absolute;
-		left: 0;
-		color: var(--pink);
-	}
-	.timeline > li {
-		display: flex;
-		flex-direction: column;
-		padding: 16px 0;
-		border-top: var(--border-thin);
-	}
-	.timeline > li:first-child {
-		border-top: none;
-		padding-top: 0;
-	}
-	.timeline > li:last-child {
-		padding-bottom: 0;
-	}
-	.timeline .meta {
-		font-family: var(--font-mono);
-		font-size: 0.85rem;
-		color: var(--ink-soft);
-		margin-top: 4px;
-	}
-	.timeline li ul {
-		margin-top: 12px;
-	}
-	@media (max-width: 700px) {
-		h1 {
-			font-size: 2rem;
-		}
-		.profile-hero {
-			flex-direction: column;
-			text-align: center;
-		}
-	}
-</style>

@@ -11,71 +11,41 @@ const t = useTranslations(locale);
 const pdfSrc = '/manuals/roomie-kurzanleitung-de-v2.pdf';
 ---
 
-<section class="guide-section">
-	<div class="guide-head">
-		<div class="guide-icon">
-			<svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-				<path
-					d="M6 2h9l5 5v15H6V2z"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linejoin="round"
-				/>
-				<path d="M15 2v5h5" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
-			</svg>
-		</div>
-		<div>
-			<h2>{t('guide.title')}</h2>
+<section aria-labelledby="guide-heading">
+	<h2 id="guide-heading" class="section-title">{t('guide.title')}</h2>
+	<div class="guide-card">
+		<div class="guide-intro">
 			<p>{t('guide.desc')}</p>
 			{locale === 'en' && <p class="guide-note">{t('guide.deOnly')}</p>}
 		</div>
-	</div>
 
-	<div class="pdf-viewer">
-		<iframe src={`${pdfSrc}#view=Fit&toolbar=0`} title={t('guide.title')} />
+		<div class="pdf-viewer">
+			<iframe src={`${pdfSrc}#view=Fit&toolbar=0`} title={t('guide.title')} />
+		</div>
+		<a class="pdf-open" href={pdfSrc} target="_blank" rel="noopener">{t('guide.openPdf')}</a>
 	</div>
-	<a class="pdf-open" href={pdfSrc} target="_blank" rel="noopener">{t('guide.openPdf')}</a>
 </section>
 
 <style>
-	.guide-section {
+	.guide-card {
 		background: var(--lavender);
 		border: var(--border);
 		border-radius: var(--radius-lg);
 		padding: 32px;
 		margin-bottom: 28px;
 	}
-	.guide-head {
-		display: flex;
-		gap: 20px;
-		align-items: flex-start;
+	.guide-intro {
 		margin-bottom: 22px;
 	}
-	.guide-head h2 {
-		font-size: 1.6rem;
-		margin-bottom: 8px;
-	}
-	.guide-head p {
+	.guide-intro p {
 		margin: 0;
 		font-size: 1.05rem;
 	}
-	.guide-head .guide-note {
+	.guide-intro .guide-note {
 		margin-top: 8px;
 		font-family: var(--font-mono);
 		font-size: 0.85rem;
 		color: var(--ink-soft);
-	}
-	.guide-icon {
-		width: 60px;
-		height: 60px;
-		border-radius: 50%;
-		background: var(--paper);
-		border: var(--border-thin);
-		color: var(--ink);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-shrink: 0;
 	}
 	.pdf-viewer {
 		background: var(--paper);

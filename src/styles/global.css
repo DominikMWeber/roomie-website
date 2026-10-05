@@ -39,6 +39,32 @@ a:hover {
 	border-radius: 4px;
 }
 
+/* page header for subpages: big centered title plus a one-line subline */
+.page-head {
+	text-align: center;
+	margin-bottom: 40px;
+}
+.page-head h1 {
+	font-size: 2.6rem;
+}
+.page-head .page-sub {
+	margin: 10px 0 0;
+	font-size: 1.15rem;
+	color: var(--ink-soft);
+}
+@media (max-width: 700px) {
+	.page-head h1 {
+		font-size: 2rem;
+	}
+}
+
+/* centered heading above a page section (Start-page features/blog/guide, About sections) */
+.section-title {
+	text-align: center;
+	font-size: 2rem;
+	margin: 72px 0 36px;
+}
+
 /* ---------- marker highlight, reusable across components ---------- */
 .marker {
 	position: relative;
@@ -96,22 +122,21 @@ a:hover {
 }
 
 /*
-  Washi tape: a semi-transparent pink strip with torn ends across the top
-  center of a box. Decorative only. Uses ::before, so it can't be combined
-  with .sketch on the same element.
+  Washi tape, decorative only. .tape: one semi-transparent pink strip with
+  torn ends across the top center (uses ::before). .tape-corners: two
+  diagonal strips over the top corners (uses ::before and ::after).
+  Neither can be combined with .sketch on the same element.
 */
-.tape {
+.tape,
+.tape-corners {
 	position: relative;
 }
-.tape::before {
+.tape::before,
+.tape-corners::before,
+.tape-corners::after {
 	content: '';
 	position: absolute;
-	top: -15px;
-	left: 50%;
-	width: 128px;
 	height: 28px;
-	translate: -50% 0;
-	rotate: -3deg;
 	background: color-mix(in srgb, var(--pink) 42%, transparent);
 	pointer-events: none;
 	/* torn, zigzag short ends */
@@ -119,4 +144,24 @@ a:hover {
 		0 0, 100% 0, 97% 20%, 100% 40%, 97% 60%, 100% 80%, 97% 100%,
 		0 100%, 3% 80%, 0 60%, 3% 40%, 0 20%
 	);
+}
+.tape::before {
+	top: -15px;
+	left: 50%;
+	width: 128px;
+	translate: -50% 0;
+	rotate: -3deg;
+}
+.tape-corners::before,
+.tape-corners::after {
+	top: 6px;
+	width: 104px;
+}
+.tape-corners::before {
+	left: -34px;
+	rotate: -38deg;
+}
+.tape-corners::after {
+	right: -34px;
+	rotate: 36deg;
 }

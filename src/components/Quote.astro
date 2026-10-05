@@ -2,17 +2,20 @@
 interface Props {
 	text: string;
 	attribution: string;
+	/** Short second signature line under the name, e.g. the person's role. */
+	role?: string;
 	readMoreLabel: string;
 	readMoreHref?: string;
 	imageSrc?: string;
 	imageAlt?: string;
 	imageHref?: string;
-	/** Adds a decorative strip of washi tape across the top of the white card. */
+	/** Tapes the card's two top corners with decorative washi-tape strips. */
 	tape?: boolean;
 }
 const {
 	text,
 	attribution,
+	role,
 	readMoreLabel,
 	readMoreHref = '#',
 	imageSrc,
@@ -22,21 +25,23 @@ const {
 } = Astro.props;
 ---
 
-<section class="quote-card">
-	{/* figcaption must be the figure's first or last child, so the portrait sits between; grid places it on the right */}
-	<figure class:list={['quote-inner', { tape }]}>
+<section class:list={['quote-card', { 'tape-corners': tape }]}>
+	<figure>
 		<blockquote>
 			<p>{text}</p>
 		</blockquote>
-		{
-			imageSrc && (
-				<a class="quote-portrait-link" href={imageHref ?? '#'} aria-label={imageAlt}>
-					<img class="quote-portrait" src={imageSrc} width="160" height="160" alt={imageAlt} loading="lazy" decoding="async" />
-				</a>
-			)
-		}
 		<figcaption>
-			<span class="attribution">{attribution}</span>
+			{
+				imageSrc && (
+					<a class="quote-portrait-link" href={imageHref ?? '#'} aria-label={imageAlt}>
+						<img class="quote-portrait" src={imageSrc} width="160" height="160" alt={imageAlt} loading="lazy" decoding="async" />
+					</a>
+				)
+			}
+			<span class="signature">
+				<span class="attribution">{attribution}</span>
+				{role && <span class="role">{role}</span>}
+			</span>
 			<a class="read-more" href={readMoreHref}>{readMoreLabel}</a>
 		</figcaption>
 	</figure>
@@ -47,23 +52,13 @@ const {
 		background: var(--sky);
 		border: var(--border);
 		border-radius: var(--radius-lg);
-		padding: 32px;
+		padding: 32px 36px;
 		margin-bottom: 28px;
 	}
-	.quote-inner {
-		background: var(--paper);
-		border: var(--border-thin);
-		border-radius: var(--radius-md);
+	figure {
 		margin: 0;
-		padding: 28px 32px;
-		display: grid;
-		grid-template-columns: 1fr auto;
-		align-items: center;
-		column-gap: 28px;
 	}
 	blockquote {
-		grid-column: 1;
-		grid-row: 1;
 		margin: 0;
 	}
 	/* large decorative quotation mark; the empty alt text keeps it out of screen readers */
@@ -80,39 +75,51 @@ const {
 	}
 	blockquote p {
 		margin: 0;
-		font-size: 1.15rem;
-	}
-	figcaption {
-		grid-column: 1;
-		grid-row: 2;
-	}
-	.quote-card .attribution {
-		display: block;
-		margin-top: 16px;
-		font-weight: 700;
 		font-family: var(--font-display);
-		font-size: 1.05rem;
+		font-weight: 500;
+		font-size: 1.4rem;
+		line-height: 1.45;
 	}
-	.quote-card .read-more {
-		display: inline-block;
-		margin-top: 16px;
+	/* signature line: portrait, name + role, read-more link on the right */
+	figcaption {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 12px 16px;
+		margin-top: 28px;
+	}
+	.signature {
+		display: flex;
+		flex-direction: column;
+	}
+	.attribution {
+		font-family: var(--font-display);
+		font-weight: 700;
+		font-size: 1.3rem;
+		line-height: 1.2;
+	}
+	.role {
+		font-family: var(--font-mono);
+		font-size: 0.85rem;
+		color: var(--ink-soft);
+	}
+	.read-more {
+		margin-left: auto;
 		font-weight: 600;
 	}
 	.quote-portrait-link {
-		grid-column: 2;
-		grid-row: 1 / 3;
 		display: block;
 		border-radius: 50%;
 		transition: translate 0.2s ease;
 	}
 	.quote-portrait-link:hover,
 	.quote-portrait-link:focus-visible {
-		translate: 0 -8px;
+		translate: 0 -4px;
 	}
 	.quote-portrait {
 		display: block;
-		width: 120px;
-		height: 120px;
+		width: 64px;
+		height: 64px;
 		border-radius: 50%;
 		border: var(--border-thin);
 		transition: box-shadow 0.2s ease;
@@ -122,21 +129,16 @@ const {
 		box-shadow: 3px 3px 0 var(--ink);
 	}
 	@media (max-width: 700px) {
-		.quote-inner {
-			grid-template-columns: 1fr;
-			row-gap: 20px;
-			text-align: center;
+		.quote-card {
+			padding: 28px 24px;
 		}
-		.quote-portrait-link {
-			grid-column: 1;
-			grid-row: 1;
-			justify-self: center;
+		blockquote p {
+			font-size: 1.2rem;
 		}
-		blockquote {
-			grid-row: 2;
-		}
-		figcaption {
-			grid-row: 3;
+		/* link drops onto its own line under the signature */
+		.read-more {
+			flex-basis: 100%;
+			margin-left: 0;
 		}
 	}
 </style>

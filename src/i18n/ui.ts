@@ -23,19 +23,18 @@ export const ui = {
 
 		'brand.sub': 'Ein freies pädagogisches Intercom-Projekt',
 
-		'hero.wip':
-			'Diese Website ist noch im Aufbau. Die aktuelle Version ist lediglich eine Vorschau und repräsentiert nicht den eigentlichen Stand des Projekts.',
-
 		'hero.tagline.prefix':
 			'Lasst mich roomie vorstellen: Ein nerdiges und personalisierbares Old-School-Intercom, mit dem sich Groß und Klein Zuhause unterhält — ',
 		'hero.tagline.highlight': 'roomie ist ein unabhängiges, nicht-kommerzielles Open-Source-Projekt zum Lernen und Selberbauen.',
 
 		'quote.text':
 			'Als Patenonkel eines kleinen Bubs wollte ich ein technisches System schaffen, das Kinder spielerisch an Kommunikationstechnik heranführt. Wichtig war mir hierbei, auf Bildschirmzeit mit funktionsüberladenen, süchtig machenden Smartphones zu verzichten.',
-		'quote.attribution': '— Dominik',
+		'quote.attribution': 'Dominik',
+		'quote.role': 'Erfinder von roomie',
 		'quote.readMore': '→ den ganzen Blogbeitrag lesen',
 
 
+		'features.title': 'Was roomie ausmacht',
 		'feature.design.title': 'Einfache Designsprache!',
 		'feature.design.desc':
 			'Das Design von roomie soll an die Spielkonsolen der 90er und 2000er erinnern. Die Bedienelemente sind selbsterklärend: zwei Arcade-Buttons für eingehende und ausgehende Anrufe und ein analoger Lautstärke-Drehregler.',
@@ -92,8 +91,6 @@ export const ui = {
 
 		'brand.sub': 'A free educational intercom project',
 
-		'hero.wip': "This website is still under construction. The current version is just a draft and does not represent the actual state of the project.",
-
 		'hero.tagline.prefix':
 			'Let me introduce roomie: a nerdy and customizable old-school intercom that lets young and old talk to each other at home — ',
 		'hero.tagline.highlight':
@@ -101,10 +98,12 @@ export const ui = {
 
 		'quote.text':
 			"As a godfather raising a young lad, I wanted to provide a system that introduces kids to communication technology through real conversations, in a setup that's fun to use. A setup that reduces screen time away from feature-overloaded, addictive smartphones.",
-		'quote.attribution': '— Dominik',
+		'quote.attribution': 'Dominik',
+		'quote.role': 'Creator of roomie',
 		'quote.readMore': '→ read the whole blog post',
 
 
+		'features.title': 'What makes roomie special',
 		'feature.design.title': 'Simple design language!',
 		'feature.design.desc':
 			"roomie's design takes inspiration from the game consoles of the 90s and 2000s. The controls are self-explanatory: two arcade buttons for incoming and outgoing calls, and an analog volume dial.",

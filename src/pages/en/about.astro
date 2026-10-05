@@ -1,12 +1,18 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import type { Locale } from '../../i18n/ui';
+import '../../styles/about.css';
 
 const locale: Locale = 'en';
+const introPostHref = getRelativeLocaleUrl(locale, '/blog/roomie-intro');
 ---
 
 <BaseLayout title="About me · Roomie" description="About me and how roomie came to be." locale={locale}>
-	<h1>About me</h1>
+	<header class="page-head">
+		<h1>About me</h1>
+		<p class="page-sub">The person behind roomie</p>
+	</header>
 
 	<section class="profile-hero tape">
 		<img
@@ -26,7 +32,6 @@ const locale: Locale = 'en';
 				several years of professional experience in firmware and embedded systems development, I
 				passionately combine knowledge transfer with engineering.
 			</p>
-			<br />
 			<p>
 				I believe that many things in life can be so much simpler when you present facts in an
 				understandable way and are able to put yourself in other people's shoes.
@@ -34,70 +39,82 @@ const locale: Locale = 'en';
 		</div>
 	</section>
 
-	<section class="profile-card" style={{ background: 'var(--mint)' }}>
-		<h2>Hobbies</h2>
-		<ul>
-			<li>Drummer in a metal band</li>
-			<li>Embedded and coding projects</li>
-			<li>AI-related literature and projects</li>
+	<section aria-labelledby="hobbies-heading">
+		<h2 id="hobbies-heading" class="section-title">Hobbies</h2>
+		<ul class="hobby-grid">
+			<li class="hobby-card" style={{ background: 'var(--mint)' }}>Drummer in a metal band</li>
+			<li class="hobby-card" style={{ background: 'var(--lavender)' }}>Embedded and coding projects</li>
+			<li class="hobby-card" style={{ background: 'var(--cream)' }}>AI-related literature and projects</li>
 		</ul>
 	</section>
 
-	<section class="profile-card" style={{ background: 'var(--pink-soft)' }}>
-		<h2>Work Experience</h2>
-		<ul class="timeline">
-			<li>
-				<strong>Embedded Systems Engineer</strong>
-				<span class="meta">PCB Arts GmbH · Fürth, Bavaria · since 05/2026</span>
-				<ul>
-					<li>BSP development for Linux4Tegra on NVIDIA Jetson platforms</li>
-				</ul>
-			</li>
-			<li>
-				<strong>Teacher</strong>
-				<span class="meta">State Technical College Neumarkt i. d. OPf. · since 09/2024</span>
-				<ul>
-					<li>Subject coordinator for the AI department</li>
-					<li>Advisor to the AI curriculum committee</li>
-					<li>Subjects: programming, AI, computer science, electronics</li>
-				</ul>
-			</li>
-			<li>
-				<strong>Senior Engineer – Research Engineer</strong>
-				<span class="meta">
-					Fraunhofer IIS, Medical Sensor Systems Group · Erlangen · 08/2019–09/2022 (full-time),
-					03/2023–08/2024 (part-time)
-				</span>
-				<ul>
-					<li>Embedded C developer for 32-bit microcontrollers (nRF52/STM32, FreeRTOS/Zephyr OS + BLE)</li>
-					<li>
-						Project lead and system architect for a sensor system to validate a mobilization seat
-						(partner: Daimler Truck AG)
-					</li>
-				</ul>
-			</li>
-		</ul>
+	<section aria-labelledby="work-heading">
+		<h2 id="work-heading" class="section-title">Work Experience</h2>
+		<div class="timeline-card" style={{ background: 'var(--pink-soft)' }}>
+			<ol class="timeline">
+				<li>
+					<span class="when">since 05/2026</span>
+					<strong>Embedded Systems Engineer</strong>
+					<span class="meta">PCB Arts GmbH · Fürth, Bavaria</span>
+					<ul>
+						<li>BSP development for Linux4Tegra on NVIDIA Jetson platforms</li>
+					</ul>
+				</li>
+				<li>
+					<span class="when">since 09/2024</span>
+					<strong>Teacher</strong>
+					<span class="meta">State Technical College Neumarkt i. d. OPf.</span>
+					<ul>
+						<li>Subject coordinator for the AI department</li>
+						<li>Advisor to the AI curriculum committee</li>
+						<li>Subjects: programming, AI, computer science, electronics</li>
+					</ul>
+				</li>
+				<li>
+					<span class="when">08/2019–09/2022 (full-time) · 03/2023–08/2024 (part-time)</span>
+					<strong>Senior Engineer – Research Engineer</strong>
+					<span class="meta">Fraunhofer IIS, Medical Sensor Systems Group · Erlangen</span>
+					<ul>
+						<li>Embedded C developer for 32-bit microcontrollers (nRF52/STM32, FreeRTOS/Zephyr OS + BLE)</li>
+						<li>
+							Project lead and system architect for a sensor system to validate a mobilization seat
+							(partner: Daimler Truck AG)
+						</li>
+					</ul>
+				</li>
+			</ol>
+		</div>
 	</section>
 
-	<section class="profile-card" style={{ background: 'var(--cream)' }}>
-		<h2>Education</h2>
-		<ul class="timeline">
-			<li>
-				<strong>
-					Teacher training ("Referendariat") for vocational schools, specializing in Information
-					Technology (lateral entry)
-				</strong>
-				<span class="meta">Technikerschule Neumarkt i. d. OPf. · 09/2022–07/2024 · Second State Examination</span>
-			</li>
-			<li>
-				<strong>
-					Master's degree in Electronic and Mechatronic Systems, specializing in Information
-					Technology
-				</strong>
-				<span class="meta">TH Nürnberg · 10/2017–08/2019 · M.Eng.</span>
-			</li>
-		</ul>
+	<section aria-labelledby="education-heading">
+		<h2 id="education-heading" class="section-title">Education</h2>
+		<div class="timeline-card" style={{ background: 'var(--cream)' }}>
+			<ol class="timeline">
+				<li>
+					<span class="when">09/2022–07/2024</span>
+					<strong>
+						Teacher training ("Referendariat") for vocational schools, specializing in Information
+						Technology (lateral entry)
+					</strong>
+					<span class="meta">Technikerschule Neumarkt i. d. OPf. · Second State Examination</span>
+				</li>
+				<li>
+					<span class="when">10/2017–08/2019</span>
+					<strong>
+						Master's degree in Electronic and Mechatronic Systems, specializing in Information
+						Technology
+					</strong>
+					<span class="meta">TH Nürnberg · M.Eng.</span>
+				</li>
+			</ol>
+		</div>
 	</section>
+
+	<a class="closing-card sketch" href={introPostHref}>
+		<h2>Why I built roomie</h2>
+		<p>The full story behind roomie is in the first blog post.</p>
+		<span class="cta">→ read the blog post</span>
+	</a>
 
 	<p class="ai-note">
 		<em>
@@ -107,108 +124,3 @@ const locale: Locale = 'en';
 		</em>
 	</p>
 </BaseLayout>
-
-<style>
-	h1 {
-		margin: 0 0 28px;
-		font-size: 2.6rem;
-	}
-	.profile-hero {
-		display: flex;
-		align-items: center;
-		gap: 32px;
-		background: var(--sky);
-		border: var(--border);
-		border-radius: var(--radius-lg);
-		padding: 32px;
-		margin-bottom: 28px;
-	}
-	.portrait {
-		flex-shrink: 0;
-		width: 160px;
-		height: 160px;
-		border-radius: 50%;
-	}
-	.profile-hero h2 {
-		margin: 0 0 6px;
-		font-size: 1.6rem;
-	}
-	.tagline {
-		margin: 0 0 12px;
-		font-family: var(--font-mono);
-		font-size: 0.9rem;
-		color: var(--ink-soft);
-	}
-	.profile-hero p:not(.tagline) {
-		margin: 0;
-		font-size: 1.05rem;
-		line-height: 1.6;
-	}
-	.profile-card {
-		border: var(--border);
-		border-radius: var(--radius-lg);
-		padding: 32px;
-		margin-bottom: 28px;
-	}
-	.profile-card h2 {
-		margin: 0 0 18px;
-		font-size: 1.4rem;
-	}
-	.profile-card ul {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-	.profile-card ul li {
-		font-size: 1.05rem;
-	}
-	.profile-card ul:not(.timeline) li {
-		padding-left: 1.4em;
-		position: relative;
-		margin-bottom: 10px;
-	}
-	.profile-card ul:not(.timeline) li::before {
-		content: '●';
-		position: absolute;
-		left: 0;
-		color: var(--pink);
-	}
-	.timeline > li {
-		display: flex;
-		flex-direction: column;
-		padding: 16px 0;
-		border-top: var(--border-thin);
-	}
-	.timeline > li:first-child {
-		border-top: none;
-		padding-top: 0;
-	}
-	.timeline > li:last-child {
-		padding-bottom: 0;
-	}
-	.timeline .meta {
-		font-family: var(--font-mono);
-		font-size: 0.85rem;
-		color: var(--ink-soft);
-		margin-top: 4px;
-	}
-	.timeline li ul {
-		margin-top: 12px;
-	}
-	.ai-note {
-		margin: 0;
-		max-width: 62ch;
-		font-size: 0.95rem;
-		line-height: 1.7;
-		color: var(--ink-soft);
-	}
-	@media (max-width: 700px) {
-		h1 {
-			font-size: 2rem;
-		}
-		.profile-hero {
-			flex-direction: column;
-			text-align: center;
-		}
-	}
-</style>

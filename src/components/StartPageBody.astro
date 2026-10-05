@@ -34,11 +34,10 @@ const aboutHref = getRelativeLocaleUrl(locale, '/about');
 	</h1>
 </section>
 
-<p class="wip-notice">{t('hero.wip')}</p>
-
 <Quote
 	text={t('quote.text')}
 	attribution={t('quote.attribution')}
+	role={t('quote.role')}
 	readMoreLabel={t('quote.readMore')}
 	readMoreHref={introPostHref}
 	imageSrc="/images/authors/dominik-weber-large.png"
@@ -77,18 +76,7 @@ const aboutHref = getRelativeLocaleUrl(locale, '/about');
 	.tagline .tagline-sub {
 		display: block;
 		font-size: 0.75em;
-		margin-top: 0.6em;
-	}
-	.wip-notice {
-		border: 2px dashed var(--ink-soft);
-		border-radius: var(--radius-md);
-		padding: 24px;
-		margin: 0 0 28px;
-		color: var(--ink-soft);
-		font-family: var(--font-mono);
-		font-size: 0.9rem;
-		line-height: 1.6;
-		text-align: center;
+		margin-top: 1.4em;
 	}
 	@media (max-width: 700px) {
 		.tagline {

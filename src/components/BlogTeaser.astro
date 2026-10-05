@@ -18,7 +18,7 @@ const blogIndexHref = getRelativeLocaleUrl(locale, '/blog');
 {
 	posts.length > 0 && (
 		<section class="blog-teaser" aria-labelledby="recent-posts-heading">
-			<h2 id="recent-posts-heading">{t('blog.recent.title')}</h2>
+			<h2 id="recent-posts-heading" class="section-title">{t('blog.recent.title')}</h2>
 			<div class="post-grid">
 				{posts.map((post) => (
 					<PostCard
@@ -42,10 +42,6 @@ const blogIndexHref = getRelativeLocaleUrl(locale, '/blog');
 <style>
 	.blog-teaser {
 		margin-bottom: 28px;
-	}
-	.blog-teaser h2 {
-		font-size: 1.6rem;
-		margin-bottom: 24px;
 	}
 	.post-grid {
 		display: grid;

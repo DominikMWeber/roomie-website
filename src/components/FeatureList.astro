@@ -36,29 +36,32 @@ const features = [
 ];
 ---
 
-<div class="features">
-	{
-		features.map((f) => (
-			<div class="feature-card sketch" style={{ background: f.bg }}>
-				<div class="feature-heading">
-					<div class="feature-icon">
-					{f.icon === 'controller' ? (
-						<img src="/images/icons/design-language.png" width="32" height="32" alt="" />
-					) : f.icon === 'wrench' ? (
-						<img src="/images/icons/build.png" width="32" height="32" alt="" />
-					) : f.icon === 'music' ? (
-						<img src="/images/icons/personalize.png" width="32" height="32" alt="" />
-					) : (
-						<img src="/images/icons/dev.png" width="32" height="32" alt="" />
-					)}
+<section aria-labelledby="features-heading">
+	<h2 id="features-heading" class="section-title">{t('features.title')}</h2>
+	<div class="features">
+		{
+			features.map((f) => (
+				<div class="feature-card sketch" style={{ background: f.bg }}>
+					<div class="feature-heading">
+						<div class="feature-icon">
+						{f.icon === 'controller' ? (
+							<img src="/images/icons/design-language.png" width="32" height="32" alt="" />
+						) : f.icon === 'wrench' ? (
+							<img src="/images/icons/build.png" width="32" height="32" alt="" />
+						) : f.icon === 'music' ? (
+							<img src="/images/icons/personalize.png" width="32" height="32" alt="" />
+						) : (
+							<img src="/images/icons/dev.png" width="32" height="32" alt="" />
+						)}
+						</div>
+						<h3>{f.title}</h3>
 					</div>
-					<h2>{f.title}</h2>
+					<p>{f.desc}</p>
 				</div>
-				<p>{f.desc}</p>
-			</div>
-		))
-	}
-</div>
+			))
+		}
+	</div>
+</section>
 
 <style>
 	.features {
@@ -95,7 +98,7 @@ const features = [
 		align-items: center;
 		justify-content: center;
 	}
-	.feature-card h2 {
+	.feature-card h3 {
 		margin: 0;
 		font-size: 1.4rem;
 	}
