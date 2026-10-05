@@ -7,6 +7,8 @@ interface Props {
 	imageSrc?: string;
 	imageAlt?: string;
 	imageHref?: string;
+	/** Adds a decorative strip of washi tape across the top of the white card. */
+	tape?: boolean;
 }
 const {
 	text,
@@ -16,11 +18,12 @@ const {
 	imageSrc,
 	imageAlt = '',
 	imageHref,
+	tape = false,
 } = Astro.props;
 ---
 
 <section class="quote-card">
-	<div class="quote-inner">
+	<div class:list={['quote-inner', { taped: tape }]}>
 		<div class="quote-text">
 			<p>&ldquo;{text}&rdquo;</p>
 			<p class="attribution">{attribution}</p>
@@ -52,6 +55,27 @@ const {
 		display: flex;
 		align-items: center;
 		gap: 28px;
+	}
+	/* Washi tape: decorative only, drawn on a pseudo-element. */
+	.taped {
+		position: relative;
+	}
+	.taped::before {
+		content: '';
+		position: absolute;
+		top: -15px;
+		left: 50%;
+		width: 128px;
+		height: 28px;
+		translate: -50% 0;
+		rotate: -3deg;
+		background: color-mix(in srgb, var(--pink) 42%, transparent);
+		pointer-events: none;
+		/* torn, zigzag short ends */
+		clip-path: polygon(
+			0 0, 100% 0, 97% 20%, 100% 40%, 97% 60%, 100% 80%, 97% 100%,
+			0 100%, 3% 80%, 0 60%, 3% 40%, 0 20%
+		);
 	}
 	.quote-text {
 		flex: 1;
