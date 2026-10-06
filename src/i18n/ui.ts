@@ -49,10 +49,12 @@ export const ui = {
 			'roomie basiert auf ESP32S3-Mikrocontrollern mit einer eigens entwickelten Hardwareplatine. Programmiert mit VS Code, PlatformIO und Espressif IDF/FreeRTOS. Die roomie-Einheiten unterhalten sich im Netzwerk über UDP und CoAP.',
 
 		'build.title': 'Bauen',
+		'build.sub': 'Roomie Schritt für Schritt selbst nachbauen',
 		'build.notice':
 			'Hier entsteht bald eine Schritt-für-Schritt-Anleitung zum Nachbauen von roomie.',
 
 		'courses.title': 'Kurse',
+		'courses.sub': 'Kostenlose Selbstlernkurse rund um roomie und Firmware-Entwicklung',
 		'courses.notice':
 			'Hier entstehen bald kostenlose Moodle-Selbstlernkurse rund um roomie und professionelle Firmware-Entwicklung.',
 
@@ -118,10 +120,12 @@ export const ui = {
 			'roomie runs on ESP32-S3 microcontrollers on a custom-designed hardware board. Built with VS Code, PlatformIO, and the Espressif IDF/FreeRTOS. roomie units talk to each other over the network via UDP and CoAP.',
 
 		'build.title': 'Build',
+		'build.sub': 'Build your own roomie, step by step',
 		'build.notice':
 			"A step-by-step tutorial for building your own roomie is coming here soon.",
 
 		'courses.title': 'Courses',
+		'courses.sub': 'Free self-paced courses on roomie and firmware development',
 		'courses.notice':
 			'Free self-paced Moodle courses on roomie and professional firmware development are coming here soon.',
 

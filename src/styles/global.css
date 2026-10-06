@@ -58,6 +58,20 @@ a:hover {
 	}
 }
 
+/* "coming soon" box on placeholder pages (Bauen, Kurse) */
+.wip-notice {
+	max-width: 62ch;
+	margin: 0 auto;
+	border: 2px dashed var(--ink-soft);
+	border-radius: var(--radius-md);
+	padding: 24px;
+	text-align: center;
+	color: var(--ink-soft);
+	font-family: var(--font-mono);
+	font-size: 0.9rem;
+	line-height: 1.6;
+}
+
 /* centered heading above a page section (Start-page features/blog/guide, About sections) */
 .section-title {
 	text-align: center;
