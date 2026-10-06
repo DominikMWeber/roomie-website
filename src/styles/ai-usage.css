@@ -1,0 +1,68 @@
+/* shared by src/pages/ai-usage.astro and src/pages/en/ai-usage.astro */
+.lead {
+	margin: 0 auto;
+	max-width: 62ch;
+	font-size: 1.15rem;
+	line-height: 1.7;
+}
+.card {
+	border: var(--border);
+	border-radius: var(--radius-lg);
+	padding: 32px;
+}
+.card--mint {
+	background: var(--mint);
+}
+.card--sky {
+	background: var(--sky);
+}
+.card--lavender {
+	background: var(--lavender);
+}
+.card p {
+	margin: 0 0 20px;
+	line-height: 1.7;
+}
+.card p:last-child {
+	margin-bottom: 0;
+}
+.ai-note {
+	margin: 28px 0 0;
+	max-width: 62ch;
+	font-style: italic;
+	font-size: 0.95rem;
+	line-height: 1.7;
+	color: var(--ink-soft);
+}
+.split {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 28px;
+}
+.split h3 {
+	margin: 0 0 10px;
+	font-family: var(--font-mono);
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+.split ul {
+	margin: 0;
+	padding-left: 1.2em;
+	line-height: 1.6;
+}
+.split li {
+	margin-bottom: 8px;
+}
+.split li:last-child {
+	margin-bottom: 0;
+}
+@media (max-width: 700px) {
+	.card {
+		padding: 24px;
+	}
+	.split {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+}

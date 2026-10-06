@@ -63,6 +63,7 @@ export const ui = {
 		'guide.deOnly': '',
 
 		'blog.index.title': 'Blog',
+		'blog.index.sub': 'Neuigkeiten und Hintergründe rund um roomie',
 		'blog.recent.title': 'Neueste Blogbeiträge',
 		'blog.viewAll': 'Zu allen Blogposts',
 		'blog.by': 'von',
@@ -131,6 +132,7 @@ export const ui = {
 		'guide.deOnly': 'The guide is currently only available in German.',
 
 		'blog.index.title': 'Blog',
+		'blog.index.sub': 'News and background on roomie',
 		'blog.recent.title': 'Recent blog posts',
 		'blog.viewAll': 'View all blog posts',
 		'blog.by': 'by',

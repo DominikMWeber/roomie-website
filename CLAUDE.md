@@ -54,14 +54,14 @@ All colors and fonts are CSS custom properties defined once in `src/styles/token
 
 **Visual design** is a deliberate blend: white page background with pastel-tinted content cards (`--cream`, `--mint`, `--sky`, `--pink-soft`, `--lavender`) inside 2px black borders (`--border` / `--border-thin`) and large corner radii (`--radius-lg: 24px`, `--radius-md: 18px`) — this card language was borrowed from gehirngerecht.digital's accessible-design style (borders were 3px originally; thinned to 2px and pastels softened in 2026-10). Asymmetric "wobbly" hand-drawn radii were tried and rejected as too messy. Interactive cards (Start-page feature cards, `PostCard` images) instead use the shared `.sketch` class from `global.css` — a double, slightly rotated pencil-style outline drawn on `::before`/`::after` (so it occupies both pseudo-elements, and the element must not use `overflow: hidden` or the outline gets clipped — clip inner images with `border-radius: var(--radius-sketch)` instead). Use `.sketch` for any new clickable card; static content cards keep the plain 2px border. A second decorative family in `global.css` is washi tape: `.tape` draws one semi-transparent pink strip across the top center of a box (About-page profile box), `.tape-corners` draws two diagonal strips over the top corners (Start-page quote, via `Quote`'s `tape` prop). Both use the pseudo-elements, so never combine them with `.sketch` on the same element.
 
-**Page design rules** (Start, About and blog post pages follow these; the `/blog` overview and the Bauen/Kurse placeholders don't yet; apply them to any new or reworked content page — legal pages stay deliberately plain):
+**Page design rules** (Start, About, KI-Nutzung, the `/blog` overview and blog post pages follow these; the Bauen/Kurse placeholders don't yet; apply them to any new or reworked content page — legal pages stay deliberately plain):
 1. Page header: subpages open with `.page-head` (centered `h1` + one-line `.page-sub`), both in `global.css`. Blog posts use the post's `description` as the subline, followed by a centered byline (avatar · author · date).
 2. Section headings sit *outside* the cards, centered, as `h2.section-title` (72px above, 36px below); cards hold content, not their own headline.
 3. Layout follows content: parallel items go side by side in a grid, prose goes in one wide card.
 4. One pastel per section; never the same pastel twice in a row.
 5. Accents sparingly: `.tape`/`.tape-corners` for personal "pinned" items, `.sketch` only for clickable cards; at most one accent per section.
 
-The About page (DE + EN) shares its styles via `src/styles/about.css` (imported in both page files) instead of two duplicated `<style>` blocks.
+The About page and the KI-Nutzung page (DE + EN each) share their styles via `src/styles/about.css` / `src/styles/ai-usage.css` (imported in both page files) instead of duplicated `<style>` blocks.
 
 Fonts are self-hosted via `@fontsource/space-grotesk`, `@fontsource/lexend`, and `@fontsource/jetbrains-mono` (imported in `src/styles/fonts.css`), not loaded from Google's CDN — deliberate GDPR choice for a German site (avoids leaking visitor IPs to Google). Don't reintroduce a `fonts.googleapis.com`/`fonts.gstatic.com` `<link>`.
 

@@ -21,5 +21,4 @@ Open items for the roomie-website project. Update this file as things get resolv
 ## Design (nice-to-have, no urgency)
 
 - [ ] Hobby cards on the About page have no icons yet — waiting for three raster icons in the feature-icon style (drums, chip/code, book).
-- [ ] `/blog` overview still has the old left-aligned "Blog" heading; apply `.page-head` with a subline (e.g. "Neuigkeiten und Hintergründe rund um roomie") — deferred on 2026-10-05.
 - [ ] Dark-mode toggle: CSS tokens in `src/styles/tokens.css` are structured to support `[data-theme="dark"]` / `prefers-color-scheme`, but no toggle UI exists yet.

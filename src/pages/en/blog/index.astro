@@ -16,7 +16,10 @@ const posts = await getPostsForLocale(locale);
 	description={t('site.description')}
 	locale={locale}
 >
-	<h1>{t('blog.index.title')}</h1>
+	<header class="page-head">
+		<h1>{t('blog.index.title')}</h1>
+		<p class="page-sub">{t('blog.index.sub')}</p>
+	</header>
 	<div class="post-grid">
 		{
 			posts.map((post) => (
@@ -34,18 +37,9 @@ const posts = await getPostsForLocale(locale);
 </BaseLayout>
 
 <style>
-	h1 {
-		margin: 0 0 32px;
-		font-size: 3rem;
-	}
 	.post-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 		gap: 32px 24px;
-	}
-	@media (max-width: 700px) {
-		h1 {
-			font-size: 2.1rem;
-		}
 	}
 </style>
