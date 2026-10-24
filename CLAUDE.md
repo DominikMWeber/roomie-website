@@ -72,6 +72,10 @@ Fonts are self-hosted via `@fontsource/space-grotesk`, `@fontsource/lexend`, and
 - **`<iframe>` children are not parsed as markup** by Astro's compiler (and modern browsers ignore iframe fallback content anyway) — putting JSX-like children inside `<iframe>...</iframe>` breaks the surrounding fragment's parsing. Self-close it (`<iframe src={...} />`) instead.
 - SVG child elements (`<path>`, etc.) must be self-closing (`<path ... />`); a non-self-closed `<path ...></path>` broke the astro-to-tsx transform for everything after it in the same file.
 
+## Open TODOs
+
+- **Licenses for the roomie repository** (needed before the Bauen page links to the build files): pick an open-hardware license for the PCB/enclosure files (CERN-OHL-P, -W or -S) and a software license for firmware and the roomie assistant (e.g. MIT, Apache-2.0 or GPL-3.0), add the `LICENSE` files to the GitHub repo, and name/link the licenses on the Bauen page. Both license families include the warranty disclaimer the build files need.
+
 ## Deployment
 
 Hosted on deploybase.eu (EU infrastructure, connected to this GitHub repo) — minimal visitor data collection (IP in server logs only, 30-day retention, no third-party analytics/cookies), relevant when writing the real Datenschutzerklärung.

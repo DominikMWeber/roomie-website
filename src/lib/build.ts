@@ -6,6 +6,9 @@ import type { Locale } from '../i18n/ui';
 
 type Localized = Record<Locale, string>;
 
+/** month the BOM prices were last checked; update together with the prices */
+export const PRICES_AS_OF = '10/2026';
+
 export interface Part {
 	qty: number;
 	name: Localized;

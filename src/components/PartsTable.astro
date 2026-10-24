@@ -1,5 +1,5 @@
 ---
-import { PARTS, TOOLS, bomTotal, formatEuro } from '../lib/build';
+import { PARTS, PRICES_AS_OF, TOOLS, bomTotal, formatEuro } from '../lib/build';
 import type { Locale } from '../i18n/ui';
 
 interface Props {
@@ -11,14 +11,14 @@ const { locale, kind } = Astro.props;
 
 const labels = {
 	de: {
-		parts: ['Komponente', 'Hersteller', 'Beschreibung', 'Online-Shop', 'ca. Preis (Stand 12/2026)'],
+		parts: ['Komponente', 'Hersteller', 'Beschreibung', 'Online-Shop', `ca. Preis (Stand ${PRICES_AS_OF})`],
 		tools: ['Werkzeug', 'Beschreibung', 'Erhältst Du bei'],
 		total: 'Voraussichtlicher Gesamtpreis',
 		pending: 'Preise folgen',
 		smallHint: 'Kleinkram – kann ich Dir zuschicken',
 	},
 	en: {
-		parts: ['Component', 'Manufacturer', 'Description', 'Online shop', 'Approx. price (as of 12/2026)'],
+		parts: ['Component', 'Manufacturer', 'Description', 'Online shop', `Approx. price (as of ${PRICES_AS_OF})`],
 		tools: ['Tool', 'Description', 'Available at'],
 		total: 'Estimated total',
 		pending: 'Prices to follow',

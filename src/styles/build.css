@@ -205,6 +205,12 @@ a.btn:hover {
 	font-size: 0.98rem;
 	line-height: 1.6;
 }
+.sub > :last-child {
+	margin-bottom: 0;
+}
+.card > .grid {
+	margin-bottom: 24px;
+}
 .sub .actions {
 	margin-top: auto;
 }
