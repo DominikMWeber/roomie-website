@@ -1,0 +1,107 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { useTranslations } from '../i18n/utils';
+import type { Locale } from '../i18n/ui';
+
+interface Props {
+	locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+// one card per way of getting involved, ordered by the skills each one needs
+const tiers = [
+	{ key: 'talk', level: 1, href: `${getRelativeLocaleUrl(locale, '/')}#guide-heading` },
+	{ key: 'build', level: 2, href: getRelativeLocaleUrl(locale, '/build') },
+	{ key: 'code', level: 3, href: getRelativeLocaleUrl(locale, '/courses') },
+] as const;
+---
+
+<section aria-labelledby="audience-heading">
+	<h2 id="audience-heading" class="section-title">{t('audience.title')}</h2>
+	<ul class="audience">
+		{
+			tiers.map((tier) => (
+				<li>
+					<a class="audience-card sketch" href={tier.href}>
+						<span class="level level-dots" role="img" aria-label={t('audience.level').replace('{n}', String(tier.level))}>
+							{[1, 2, 3].map((n) => (
+								<span class:list={['dot', { on: n <= tier.level }]} />
+							))}
+						</span>
+						<h3>{t(`audience.${tier.key}.title`)}</h3>
+						<p class="who">{t(`audience.${tier.key}.who`)}</p>
+						<p>{t(`audience.${tier.key}.desc`)}</p>
+						<span class="cta">{t(`audience.${tier.key}.cta`)} →</span>
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</section>
+
+<style>
+	.audience {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 24px;
+		margin: 0 0 28px;
+		padding: 0;
+		list-style: none;
+	}
+	.audience li {
+		display: flex;
+	}
+	.audience-card {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		padding: 28px;
+		background: var(--sky);
+		color: var(--ink);
+		text-decoration: none;
+		transition:
+			translate 0.2s ease,
+			box-shadow 0.2s ease;
+	}
+	.audience-card:hover,
+	.audience-card:focus-visible {
+		translate: 0 -8px;
+		box-shadow: 5px 5px 0 var(--ink);
+		color: var(--ink);
+	}
+	.level {
+		margin-bottom: 16px;
+	}
+	.audience-card h3 {
+		font-size: 1.5rem;
+	}
+	.audience-card p {
+		margin: 0 0 16px;
+		font-size: 1rem;
+		line-height: 1.6;
+	}
+	.audience-card .who {
+		margin: 6px 0 14px;
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		line-height: 1.5;
+		color: var(--ink-soft);
+	}
+	.cta {
+		margin-top: auto;
+		font-family: var(--font-display);
+		font-weight: 700;
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+	.audience-card:hover .cta,
+	.audience-card:focus-visible .cta {
+		color: var(--pink);
+	}
+	@media (max-width: 800px) {
+		.audience {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

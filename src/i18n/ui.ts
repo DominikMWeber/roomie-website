@@ -34,6 +34,28 @@ export const ui = {
 		'quote.readMore': '→ den ganzen Blogbeitrag lesen',
 
 
+		'slogan.talk': 'Quatschen.',
+		'slogan.build': 'Bauen.',
+		'slogan.code': 'Coden.',
+
+		'audience.title': 'Für wen ist roomie?',
+		'audience.level': 'Schwierigkeit {n} von 3',
+		'audience.talk.title': 'Quatschen',
+		'audience.talk.who': 'Für alle, sobald roomie eingerichtet ist',
+		'audience.talk.desc':
+			'Grünen Knopf halten zum Anrufen, roten Knopf antippen zum Auflegen – mehr musst Du nicht wissen. Das klappt schon bei den Kleinsten.',
+		'audience.talk.cta': 'So bedienst Du roomie',
+		'audience.build.title': 'Bauen & einrichten',
+		'audience.build.who': 'Mit Grundkenntnissen in Elektronik',
+		'audience.build.desc':
+			'Du hattest schon mal einen Lötkolben in der Hand? Dann baust Du mit der Schritt-für-Schritt-Anleitung Deine eigenen roomie-Einheiten und richtest sie in Deinem WLAN ein.',
+		'audience.build.cta': 'Zur Bauanleitung',
+		'audience.code.title': 'Coden',
+		'audience.code.who': 'Mit Vorkenntnissen in Programmierung und Elektronik',
+		'audience.code.desc':
+			'Du willst verstehen, wie roomie unter der Haube funktioniert, und es verändern oder weiterentwickeln? Dann bist Du hier richtig.',
+		'audience.code.cta': 'Zu den Kursen',
+
 		'features.title': 'Was roomie ausmacht',
 		'feature.design.title': 'Einfache Designsprache!',
 		'feature.design.desc':
@@ -58,7 +80,11 @@ export const ui = {
 
 		'guide.title': 'Kurzanleitung',
 		'guide.desc':
-			'Eine kurze, comicartige Anleitung zur Einrichtung deines roomie-Geräts. Hier direkt lesen oder als PDF herunterladen.',
+			'Ein kurzer Überblick als Comic: Oben richtest Du roomie ein, unten siehst Du, wie alle roomie bedienen. Hier direkt lesen oder als PDF herunterladen.',
+		'guide.setup.label': 'Einrichten',
+		'guide.setup.where': 'Schritte 1–6 · für alle, die roomie gebaut haben',
+		'guide.use.label': 'Bedienen',
+		'guide.use.where': 'unterste Reihe · für alle',
 		'guide.openPdf': 'PDF öffnen ↗',
 		'guide.deOnly': '',
 
@@ -103,6 +129,28 @@ export const ui = {
 		'quote.readMore': '→ read the whole blog post',
 
 
+		'slogan.talk': 'Talk.',
+		'slogan.build': 'Build.',
+		'slogan.code': 'Code.',
+
+		'audience.title': 'Who is roomie for?',
+		'audience.level': 'Difficulty {n} of 3',
+		'audience.talk.title': 'Talk',
+		'audience.talk.who': 'For everyone, once roomie is set up',
+		'audience.talk.desc':
+			"Hold the green button to call, tap the red one to hang up – that's all you need to know. Even the little ones can do it.",
+		'audience.talk.cta': 'How to use roomie',
+		'audience.build.title': 'Build & set up',
+		'audience.build.who': 'With basic electronics skills',
+		'audience.build.desc':
+			"Held a soldering iron before? Then the step-by-step instructions will help you build your own roomie units and set them up on your WiFi.",
+		'audience.build.cta': 'To the build guide',
+		'audience.code.title': 'Code',
+		'audience.code.who': 'With prior knowledge of programming and electronics',
+		'audience.code.desc':
+			'Want to understand how roomie works under the hood, and change it or develop it further? Then this is for you.',
+		'audience.code.cta': 'To the courses',
+
 		'features.title': 'What makes roomie special',
 		'feature.design.title': 'Simple design language!',
 		'feature.design.desc':
@@ -127,7 +175,11 @@ export const ui = {
 
 		'guide.title': 'Quick setup guide',
 		'guide.desc':
-			"A short comic-style walkthrough for setting up your roomie unit. Read it right here or download the PDF.",
+			'A short overview as a comic: the top shows how to set roomie up, the bottom shows how everyone uses it. Read it right here or download the PDF.',
+		'guide.setup.label': 'Set up',
+		'guide.setup.where': 'steps 1–6 · for everyone who built roomie',
+		'guide.use.label': 'Use',
+		'guide.use.where': 'bottom row · for everyone',
 		'guide.openPdf': 'Open PDF ↗',
 		'guide.deOnly': 'The guide is currently only available in German.',
 

@@ -72,6 +72,22 @@ a:hover {
 	line-height: 1.6;
 }
 
+/* difficulty dots (1–3 filled), shared by AudienceCards and the Kurzanleitung labels */
+.level-dots {
+	display: inline-flex;
+	gap: 6px;
+}
+.level-dots .dot {
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	border: var(--border-thin);
+	background: var(--paper);
+}
+.level-dots .dot.on {
+	background: var(--pink);
+}
+
 /* centered heading above a page section (Start-page features/blog/guide, About sections) */
 .section-title {
 	text-align: center;
