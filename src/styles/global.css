@@ -72,7 +72,7 @@ a:hover {
 	line-height: 1.6;
 }
 
-/* difficulty dots (1–3 filled), shared by AudienceCards and the Kurzanleitung labels */
+/* difficulty dots (1–3 filled), used by AudienceCards */
 .level-dots {
 	display: inline-flex;
 	gap: 6px;

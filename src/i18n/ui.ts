@@ -81,10 +81,6 @@ export const ui = {
 		'guide.title': 'Kurzanleitung',
 		'guide.desc':
 			'Ein kurzer Überblick als Comic: Oben richtest Du roomie ein, unten siehst Du, wie alle roomie bedienen. Hier direkt lesen oder als PDF herunterladen.',
-		'guide.setup.label': 'Einrichten',
-		'guide.setup.where': 'Schritte 1–6 · für alle, die roomie gebaut haben',
-		'guide.use.label': 'Bedienen',
-		'guide.use.where': 'unterste Reihe · für alle',
 		'guide.openPdf': 'PDF öffnen ↗',
 		'guide.deOnly': '',
 
@@ -176,10 +172,6 @@ export const ui = {
 		'guide.title': 'Quick setup guide',
 		'guide.desc':
 			'A short overview as a comic: the top shows how to set roomie up, the bottom shows how everyone uses it. Read it right here or download the PDF.',
-		'guide.setup.label': 'Set up',
-		'guide.setup.where': 'steps 1–6 · for everyone who built roomie',
-		'guide.use.label': 'Use',
-		'guide.use.where': 'bottom row · for everyone',
 		'guide.openPdf': 'Open PDF ↗',
 		'guide.deOnly': 'The guide is currently only available in German.',
 

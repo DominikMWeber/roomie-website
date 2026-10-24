@@ -8,11 +8,6 @@ interface Props {
 const { locale } = Astro.props;
 const t = useTranslations(locale);
 // Only a German guide exists; it is shown on both locales.
-// The comic covers two audiences; the dots match the levels in AudienceCards.
-const parts = [
-	{ key: 'setup', level: 2 },
-	{ key: 'use', level: 1 },
-] as const;
 const pdfSrc = '/manuals/roomie-kurzanleitung-de-v5.pdf';
 ---
 
@@ -21,21 +16,6 @@ const pdfSrc = '/manuals/roomie-kurzanleitung-de-v5.pdf';
 	<div class="guide-card">
 		<div class="guide-intro">
 			<p>{t('guide.desc')}</p>
-			<ul class="guide-parts">
-				{
-					parts.map((part) => (
-						<li>
-							<span class="level-dots" role="img" aria-label={t('audience.level').replace('{n}', String(part.level))}>
-								{[1, 2, 3].map((n) => (
-									<span class:list={['dot', { on: n <= part.level }]} />
-								))}
-							</span>
-							<strong>{t(`guide.${part.key}.label`)}</strong>
-							<span class="where">{t(`guide.${part.key}.where`)}</span>
-						</li>
-					))
-				}
-			</ul>
 			{locale === 'en' && <p class="guide-note">{t('guide.deOnly')}</p>}
 		</div>
 
@@ -60,29 +40,6 @@ const pdfSrc = '/manuals/roomie-kurzanleitung-de-v5.pdf';
 	.guide-intro p {
 		margin: 0;
 		font-size: 1.05rem;
-	}
-	.guide-parts {
-		margin: 16px 0 0;
-		padding: 0;
-		list-style: none;
-		display: flex;
-		flex-direction: column;
-		gap: 8px;
-	}
-	.guide-parts li {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: 4px 12px;
-	}
-	.guide-parts strong {
-		font-family: var(--font-display);
-		min-width: 6.5em;
-	}
-	.guide-parts .where {
-		font-family: var(--font-mono);
-		font-size: 0.85rem;
-		color: var(--ink-soft);
 	}
 	.guide-intro .guide-note {
 		margin-top: 8px;
