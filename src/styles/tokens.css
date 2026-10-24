@@ -9,6 +9,8 @@
 	--sky: #d5f0ff;
 	--pink-soft: #ffe7f3;
 	--lavender: #f0eaff;
+	/* highlight for the "small parts" rows in the Bauen BOM table */
+	--orange-soft: #ffe2c4;
 
 	/* saturated accents */
 	--marker-yellow: #f5e017;

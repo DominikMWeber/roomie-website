@@ -1,10 +1,15 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PartsTable from '../../components/PartsTable.astro';
 import { useTranslations } from '../../i18n/utils';
 import type { Locale } from '../../i18n/ui';
+import '../../styles/build.css';
 
 const locale: Locale = 'en';
 const t = useTranslations(locale);
+const guideHref = `${getRelativeLocaleUrl(locale, '/')}#guide-heading`;
+const coursesHref = getRelativeLocaleUrl(locale, '/courses');
 ---
 
 <BaseLayout title="Build · Roomie" description="Step-by-step tutorial for building your own roomie." locale={locale}>
@@ -13,5 +18,194 @@ const t = useTranslations(locale);
 		<p class="page-sub">{t('build.sub')}</p>
 	</header>
 
-	<p class="wip-notice">{t('build.notice')}</p>
+	<section aria-labelledby="start-heading">
+		<h2 id="start-heading" class="section-title">Let's go!</h2>
+		<div class="card card--cream">
+			<p>
+				Let's build your roomie system together! Once you have all the parts, building one roomie unit takes about
+				2&nbsp;hours. You need at least two roomie units to use it, so you'll go through these instructions at least
+				twice. roomie works with any number of units – so you can build a whole roomie family!
+			</p>
+			<h3>What to expect when building roomie</h3>
+			<ul class="checklist">
+				<li>You'll work with a screwdriver</li>
+				<li>You'll solder wires with a soldering iron</li>
+				<li>You'll drill holes into a plastic enclosure (or: 3D-print the finished enclosure yourself!)</li>
+				<li>You'll install and run programs from the command line</li>
+				<li>You'll search the internet for great sounds and store them on your roomie</li>
+			</ul>
+			<p class="hint">
+				If you've never assembled electronic components before, ask someone experienced to help you!
+			</p>
+		</div>
+	</section>
+
+	<section aria-labelledby="parts-heading">
+		<h2 id="parts-heading" class="section-title">The parts you need</h2>
+		<div class="card card--mint">
+			<p>
+				You can order all the parts for roomie online. While developing roomie, I made sure to use parts that are
+				inexpensive and will stay available for a long time. The online shops listed for each component are just my
+				recommendations – feel free to order the parts wherever they're available and affordable.
+			</p>
+
+			<h3>Bill of materials</h3>
+			<p>Each roomie unit is made of the following parts.</p>
+			<PartsTable locale={locale} kind="parts" />
+			<p>
+				Download this parts list as a text file, so you can get the parts step by step and check that you have
+				everything.
+			</p>
+			<div class="actions">
+				<span class="btn" aria-disabled="true" title={t('nav.comingSoon')}>Download parts list</span>
+			</div>
+
+			<h3>The roomie board</h3>
+			<p>
+				This is the heart of roomie: the main board with an ESP32-S3 microcontroller module and a class AB audio
+				amplifier for the full-range speaker. Can you tell which component is which?
+			</p>
+			<div class="placeholder placeholder--board">Image or 3D model of the board coming soon</div>
+		</div>
+	</section>
+
+	<section aria-labelledby="tools-heading">
+		<h2 id="tools-heading" class="section-title">The tools you need</h2>
+		<div class="card card--sky">
+			<p>To build roomie, you'll need the following tools:</p>
+			<PartsTable locale={locale} kind="tools" />
+		</div>
+	</section>
+
+	<section aria-labelledby="steps-heading">
+		<h2 id="steps-heading" class="section-title">Step by step</h2>
+		<ol class="steps">
+			<li>
+				<div class="card card--pink">
+					<h3>Get all the parts</h3>
+					<ol class="grid grid--2">
+						<li class="sub">
+							<h4>Have the boards manufactured and assembled</h4>
+							<p>
+								Have the roomie main board and the roomie extension board manufactured and assembled by a PCB
+								manufacturer.
+							</p>
+							<div class="placeholder">Text coming soon</div>
+						</li>
+						<li class="sub">
+							<h4>Buy the remaining parts</h4>
+							<p>Order all the other parts from the parts list from the online shops of your choice.</p>
+							<div class="placeholder">Text coming soon</div>
+						</li>
+					</ol>
+					<p class="hint tape">
+						For the small parts in the list above (highlighted in orange), get in touch with me: if I still have
+						them in stock, I'll happily send them to you!
+					</p>
+				</div>
+			</li>
+
+			<li>
+				<div class="card card--lavender">
+					<h3>Prepare your tools</h3>
+					<ul class="grid grid--4">
+						{
+							[1, 2, 3, 4].map((n) => (
+								<li>
+									<figure>
+										<div class="placeholder placeholder--photo">Image {n}</div>
+										<figcaption>Short text coming soon</figcaption>
+									</figure>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+			</li>
+
+			<li>
+				<div class="card card--cream">
+					<h3>Assembly</h3>
+					<div class="grid grid--2">
+						<div class="sub">
+							<h4>Option A: Build with a 3D-printed enclosure</h4>
+							<p>
+								For this option I'm assuming you know your way around 3D printing and have a 3D printer at hand.
+								Download the print files below and print the enclosure yourself!
+							</p>
+							<p>Then continue with option B and skip the steps for working on the enclosure.</p>
+							<div class="actions">
+								<span class="btn" aria-disabled="true" title={t('nav.comingSoon')}>
+									Download print files (.zip)
+								</span>
+							</div>
+						</div>
+						<div class="sub">
+							<h4>Option B: Build with a store-bought enclosure</h4>
+							<p>
+								Once you have all the parts, we can start with the actual assembly. You now have two options: either
+								follow the guided online instructions and the assembly video, or print out the attached PDF and
+								continue offline from here. Your choice.
+							</p>
+							<div class="actions">
+								<span class="btn" aria-disabled="true" title={t('nav.comingSoon')}>
+									Online instructions with video ↗
+								</span>
+								<span class="btn" aria-disabled="true" title={t('nav.comingSoon')}>
+									View and print instructions
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+
+			<li>
+				<div class="card card--mint">
+					<h3>Set up roomie</h3>
+					<p>
+						Now that your roomie units are fully assembled, it's time to bring them to life! This step has three
+						parts:
+					</p>
+					<ol class="grid grid--3">
+						<li class="sub">
+							<h4>Download the roomie assistant</h4>
+							<p>
+								Download the roomie assistant as a .zip file from the GitHub repository linked under
+								Dev&nbsp;›&nbsp;GitHub.
+							</p>
+						</li>
+						<li class="sub">
+							<h4>Install the roomie assistant</h4>
+							<div class="placeholder">Text coming soon</div>
+						</li>
+						<li class="sub">
+							<h4>Start the roomie assistant</h4>
+							<div class="placeholder">Text coming soon</div>
+						</li>
+					</ol>
+				</div>
+			</li>
+		</ol>
+	</section>
+
+	<section aria-labelledby="done-heading">
+		<h2 id="done-heading" class="section-title">Done!</h2>
+		<div class="card card--sky">
+			<p>
+				Great! Your roomie unit is built. If you've only built one roomie so far, repeat these steps for your second,
+				third or even fourth roomie! :-) Get roomie up and running by following the instructions in
+				the <a href={guideHref}>comic quick setup guide</a>.
+			</p>
+			<p>
+				If you'd like to learn more about professional firmware development, or even develop roomie further yourself,
+				take a look at the <a href={coursesHref}>Courses</a> on this website.
+			</p>
+		</div>
+	</section>
+
+	<p class="ai-note">
+		Notes on the use of AI for this page: the German original was written by me, with language corrections made
+		using Claude Code. This English version was translated with Claude Code.
+	</p>
 </BaseLayout>

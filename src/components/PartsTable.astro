@@ -1,0 +1,177 @@
+---
+import { PARTS, TOOLS, bomTotal, formatEuro } from '../lib/build';
+import type { Locale } from '../i18n/ui';
+
+interface Props {
+	locale: Locale;
+	/** which table to render: the bill of materials or the tool list */
+	kind: 'parts' | 'tools';
+}
+const { locale, kind } = Astro.props;
+
+const labels = {
+	de: {
+		parts: ['Komponente', 'Hersteller', 'Beschreibung', 'Online-Shop', 'ca. Preis (Stand 12/2026)'],
+		tools: ['Werkzeug', 'Beschreibung', 'Erhältst Du bei'],
+		total: 'Voraussichtlicher Gesamtpreis',
+		pending: 'Preise folgen',
+		smallHint: 'Kleinkram – kann ich Dir zuschicken',
+	},
+	en: {
+		parts: ['Component', 'Manufacturer', 'Description', 'Online shop', 'Approx. price (as of 12/2026)'],
+		tools: ['Tool', 'Description', 'Available at'],
+		total: 'Estimated total',
+		pending: 'Prices to follow',
+		smallHint: 'Small parts – I can send these to you',
+	},
+}[locale];
+
+const total = bomTotal();
+const dash = '–';
+---
+
+<div class="table-wrap">
+	{
+		kind === 'parts' ? (
+			<table>
+				<thead>
+					<tr>
+						{labels.parts.map((h) => (
+							<th scope="col">{h}</th>
+						))}
+					</tr>
+				</thead>
+				<tbody>
+					{PARTS.map((p) => (
+						<tr class:list={{ small: p.small }}>
+							<th scope="row">
+								<span class="qty">{p.qty}×</span> {p.name[locale]}
+							</th>
+							<td>{p.manufacturer ?? dash}</td>
+							<td>{p.description?.[locale] ?? dash}</td>
+							<td>
+								{p.shop ? (
+									<a href={p.shop.href} target="_blank" rel="noopener">
+										{p.shop.label}
+									</a>
+								) : (
+									dash
+								)}
+							</td>
+							<td class="num">{p.price !== null ? formatEuro(p.qty * p.price, locale) : dash}</td>
+						</tr>
+					))}
+				</tbody>
+				<tfoot>
+					<tr>
+						<th scope="row" colspan="4">
+							{labels.total}
+						</th>
+						<td class="num">{total !== null ? formatEuro(total, locale) : labels.pending}</td>
+					</tr>
+				</tfoot>
+			</table>
+		) : (
+			<table>
+				<thead>
+					<tr>
+						{labels.tools.map((h) => (
+							<th scope="col">{h}</th>
+						))}
+					</tr>
+				</thead>
+				<tbody>
+					{TOOLS.map((tool) => (
+						<tr>
+							<th scope="row">
+								<span class="qty">{tool.qty}×</span> {tool.name[locale]}
+							</th>
+							<td>{tool.description?.[locale] ?? dash}</td>
+							<td>{tool.source?.[locale] ?? dash}</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		)
+	}
+</div>
+{
+	kind === 'parts' && (
+		<p class="legend">
+			<span class="swatch" aria-hidden="true" /> {labels.smallHint}
+		</p>
+	)
+}
+
+<style>
+	/* wide tables scroll inside their card instead of widening the page */
+	.table-wrap {
+		overflow-x: auto;
+		background: var(--paper);
+		border: var(--border-thin);
+		border-radius: var(--radius-md);
+	}
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.95rem;
+		line-height: 1.45;
+	}
+	th,
+	td {
+		padding: 12px 16px;
+		text-align: left;
+		vertical-align: top;
+	}
+	thead th {
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		border-bottom: var(--border-thin);
+		white-space: nowrap;
+	}
+	tbody tr + tr {
+		border-top: 1px solid color-mix(in srgb, var(--ink) 15%, transparent);
+	}
+	tbody th {
+		font-weight: 600;
+		min-width: 14ch;
+	}
+	.qty {
+		font-family: var(--font-mono);
+		font-size: 0.85rem;
+		color: var(--ink-soft);
+	}
+	.num {
+		text-align: right;
+		white-space: nowrap;
+	}
+	tr.small {
+		background: var(--orange-soft);
+	}
+	tfoot tr {
+		border-top: var(--border-thin);
+	}
+	tfoot th,
+	tfoot td {
+		font-family: var(--font-display);
+		font-weight: 700;
+	}
+	.legend {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin: 12px 0 24px;
+		font-size: 0.85rem;
+		color: var(--ink-soft);
+	}
+	.swatch {
+		width: 18px;
+		height: 18px;
+		border-radius: 4px;
+		border: var(--border-thin);
+		background: var(--orange-soft);
+	}
+</style>

@@ -50,8 +50,6 @@ export const ui = {
 
 		'build.title': 'Bauen',
 		'build.sub': 'Roomie Schritt für Schritt selbst nachbauen',
-		'build.notice':
-			'Hier entsteht bald eine Schritt-für-Schritt-Anleitung zum Nachbauen von roomie.',
 
 		'courses.title': 'Kurse',
 		'courses.sub': 'Kostenlose Selbstlernkurse rund um roomie und Firmware-Entwicklung',
@@ -121,8 +119,6 @@ export const ui = {
 
 		'build.title': 'Build',
 		'build.sub': 'Build your own roomie, step by step',
-		'build.notice':
-			"A step-by-step tutorial for building your own roomie is coming here soon.",
 
 		'courses.title': 'Courses',
 		'courses.sub': 'Free self-paced courses on roomie and firmware development',

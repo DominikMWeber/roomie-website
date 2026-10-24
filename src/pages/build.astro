@@ -1,10 +1,15 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PartsTable from '../components/PartsTable.astro';
 import { useTranslations } from '../i18n/utils';
 import type { Locale } from '../i18n/ui';
+import '../styles/build.css';
 
 const locale: Locale = 'de';
 const t = useTranslations(locale);
+const guideHref = `${getRelativeLocaleUrl(locale, '/')}#guide-heading`;
+const coursesHref = getRelativeLocaleUrl(locale, '/courses');
 ---
 
 <BaseLayout title="Bauen · Roomie" description="Schritt-für-Schritt-Anleitung zum Nachbauen von roomie." locale={locale}>
@@ -13,5 +18,202 @@ const t = useTranslations(locale);
 		<p class="page-sub">{t('build.sub')}</p>
 	</header>
 
-	<p class="wip-notice">{t('build.notice')}</p>
+	<section aria-labelledby="start-heading">
+		<h2 id="start-heading" class="section-title">Los geht's!</h2>
+		<div class="card card--cream">
+			<p>
+				Lass uns zusammen Dein roomie-System aufbauen! Nachdem Du alle Teile beisammen hast, dauert der Aufbau ca.
+				2&nbsp;Stunden pro roomie-Einheit. Für den Betrieb benötigst Du mindestens zwei roomie-Einheiten. Du musst
+				diese Bauanleitungen also insgesamt mindestens zweimal durchlaufen. roomie funktioniert mit beliebig vielen
+				Einheiten – Du kannst Dir also eine ganze roomie-Familie aufbauen!
+			</p>
+			<h3>Das erwartet Dich beim Aufbau von roomie</h3>
+			<ul class="checklist">
+				<li>Du wirst mit einem Schraubendreher arbeiten</li>
+				<li>Du wirst Kabel mit einem Lötkolben verlöten</li>
+				<li>
+					Du wirst Löcher in ein Plastik-Gehäuse bohren (alternativ: Drucke das fertige Gehäuse selbst!)
+				</li>
+				<li>Du wirst Programme von der Kommandozeile installieren und ausführen</li>
+				<li>Du suchst im Internet nach tollen Klängen und speicherst diese auf Deinem roomie</li>
+			</ul>
+			<p class="hint">
+				Wenn Du zuvor noch keine Erfahrung im Zusammenbau von elektronischen Komponenten gemacht hast, lass Dich von
+				einer erfahrenen Person unterstützen!
+			</p>
+		</div>
+	</section>
+
+	<section aria-labelledby="parts-heading">
+		<h2 id="parts-heading" class="section-title">Diese Teile benötigst Du</h2>
+		<div class="card card--mint">
+			<p>
+				Die benötigten Teile für roomie kannst Du alle im Internet bestellen. Ich habe bei der Entwicklung von roomie
+				darauf geachtet, Teile zu verwenden, die günstig und langfristig verfügbar sind. Die aufgelisteten Online-Shops
+				für die jeweiligen Komponenten sind nur Empfehlungen von mir. Bestelle die Teile gerne dort, wo sie verfügbar
+				und günstig sind.
+			</p>
+
+			<h3>Stückliste (Bill of Materials)</h3>
+			<p>Jede roomie-Einheit besteht aus den folgenden Teilen.</p>
+			<PartsTable locale={locale} kind="parts" />
+			<p>
+				Lade Dir diese Stückliste als Textdatei herunter, dann kannst Du die Teile Schritt für Schritt anschaffen und
+				auf Vollständigkeit überprüfen.
+			</p>
+			<div class="actions">
+				<span class="btn" aria-disabled="true" title={t('nav.comingSoon')}>Stückliste herunterladen</span>
+			</div>
+
+			<h3>Die roomie-Platine</h3>
+			<p>
+				Das hier ist das Herzstück von roomie: Die Hauptplatine mit einem ESP32-S3-Mikrocontroller-Modul und einem
+				Class-AB-Audio-Verstärker für den Breitbandlautsprecher. Erkennst Du, welches Bauteil was ist?
+			</p>
+			<div class="placeholder placeholder--board">Bild oder 3D-Modell der Platine folgt</div>
+		</div>
+	</section>
+
+	<section aria-labelledby="tools-heading">
+		<h2 id="tools-heading" class="section-title">Dieses Werkzeug brauchst Du</h2>
+		<div class="card card--sky">
+			<p>Damit Du roomie aufbauen kannst, brauchst Du die folgenden Werkzeuge:</p>
+			<PartsTable locale={locale} kind="tools" />
+		</div>
+	</section>
+
+	<section aria-labelledby="steps-heading">
+		<h2 id="steps-heading" class="section-title">Schritt für Schritt</h2>
+		<ol class="steps">
+			<li>
+				<div class="card card--pink">
+					<h3>Alle Teile besorgen</h3>
+					<ol class="grid grid--2">
+						<li class="sub">
+							<h4>Platinen fertigen und bestücken lassen</h4>
+							<p>
+								Die roomie-Hauptplatine und die roomie-Erweiterungsplatine lässt Du bei einem Leiterplattenhersteller
+								fertigen und bestücken.
+							</p>
+							<div class="placeholder">Text folgt</div>
+						</li>
+						<li class="sub">
+							<h4>Restliche Teile kaufen</h4>
+							<p>Alle übrigen Teile aus der Stückliste bestellst Du in den Online-Shops Deiner Wahl.</p>
+							<div class="placeholder">Text folgt</div>
+						</li>
+					</ol>
+					<p class="hint tape">
+						Wende Dich für die Kleinteile aus der Liste oben (orange markiert) an mich: Sofern ich diese noch auf
+						Lager habe, schicke ich sie Dir unkompliziert zu!
+					</p>
+				</div>
+			</li>
+
+			<li>
+				<div class="card card--lavender">
+					<h3>Werkzeuge vorbereiten</h3>
+					<ul class="grid grid--4">
+						{
+							[1, 2, 3, 4].map((n) => (
+								<li>
+									<figure>
+										<div class="placeholder placeholder--photo">Bild {n}</div>
+										<figcaption>Kurzer Text folgt</figcaption>
+									</figure>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+			</li>
+
+			<li>
+				<div class="card card--cream">
+					<h3>Zusammenbau</h3>
+					<div class="grid grid--2">
+						<div class="sub">
+							<h4>Option A: Bauen mit selbst gedrucktem Gehäuse</h4>
+							<p>
+								An dieser Stelle setze ich voraus, dass Du Dich mit 3D-Druck auskennst und einen 3D-Drucker zur
+								Verfügung hast. Lade Dir die nachfolgenden Druckdateien herunter und druck Dir das Gehäuse selbst!
+							</p>
+							<p>
+								Fahre dann mit Option B fort und überspringe die Schritte zur Bearbeitung des Gehäuses.
+							</p>
+							<div class="actions">
+								<span class="btn" aria-disabled="true" title={t('nav.comingSoon')}>
+									Druckdateien herunterladen (.zip)
+								</span>
+							</div>
+						</div>
+						<div class="sub">
+							<h4>Option B: Bauen mit gekauftem Gehäuserohling</h4>
+							<p>
+								Nachdem Du alle Teile besorgt hast, können wir mit dem eigentlichen Zusammenbau loslegen. Du hast
+								jetzt zwei Möglichkeiten: Entweder Du nutzt die nachfolgende geführte Online-Anleitung und das
+								Zusammenbau-Video oder Du nutzt das angehängte PDF, druckst es aus und machst ab hier offline
+								weiter. Deine Entscheidung.
+							</p>
+							<div class="actions">
+								<span class="btn" aria-disabled="true" title={t('nav.comingSoon')}>
+									Online-Anleitung mit Video ↗
+								</span>
+								<span class="btn" aria-disabled="true" title={t('nav.comingSoon')}>
+									Anleitung anzeigen und ausdrucken
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+
+			<li>
+				<div class="card card--mint">
+					<h3>roomie einrichten</h3>
+					<p>
+						Nachdem Deine roomie-Einheiten nun fertig aufgebaut sind, musst Du ihnen noch Leben einhauchen! Dieser
+						Schritt besteht aus drei Teilen:
+					</p>
+					<ol class="grid grid--3">
+						<li class="sub">
+							<h4>roomie-Assistent herunterladen</h4>
+							<p>
+								Lade Dir hierfür vom verlinkten GitHub-Repository unter Dev&nbsp;›&nbsp;GitHub den
+								roomie-Assistenten als .zip-Datei herunter.
+							</p>
+						</li>
+						<li class="sub">
+							<h4>roomie-Assistent installieren</h4>
+							<div class="placeholder">Text folgt</div>
+						</li>
+						<li class="sub">
+							<h4>roomie-Assistent starten</h4>
+							<div class="placeholder">Text folgt</div>
+						</li>
+					</ol>
+				</div>
+			</li>
+		</ol>
+	</section>
+
+	<section aria-labelledby="done-heading">
+		<h2 id="done-heading" class="section-title">Fertig!</h2>
+		<div class="card card--sky">
+			<p>
+				Super! Deine roomie-Einheit ist aufgebaut. Falls Du bisher nur einen roomie aufgebaut hast, wiederhole die
+				gezeigten Schritte nochmals für Deinen zweiten, dritten oder sogar vierten roomie! :-) Nimm roomie in Betrieb,
+				indem Du nun die Anweisungen in der <a href={guideHref}>Comic-Kurzanleitung</a> befolgst.
+			</p>
+			<p>
+				Wenn Du mehr über professionelle Firmware-Entwicklung erfahren willst oder roomie sogar für Dich
+				weiterentwickeln möchtest, schau mal unter <a href={coursesHref}>Kurse</a> auf dieser Webseite vorbei.
+			</p>
+		</div>
+	</section>
+
+	<p class="ai-note">
+		Hinweise zur KI-Nutzung für diese Seite: Die Inhalte dieser Seite stammen von mir. Für sprachliche Korrekturen
+		habe ich Claude Code eingesetzt.
+	</p>
 </BaseLayout>
